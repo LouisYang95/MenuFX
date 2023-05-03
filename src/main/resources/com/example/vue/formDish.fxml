@@ -63,7 +63,7 @@
                   <HBox minWidth="561.0" prefHeight="30.0" prefWidth="600.0">
                      <children>
                         <Label prefHeight="23.0" prefWidth="95.0" text="Ingrédients :" />
-                        <Label fx:id="ingreLabel" prefHeight="24.0" prefWidth="159.0" />
+                        <Label fx:id="ingreLabel" prefHeight="24.0" prefWidth="536.0" />
                      </children>
                   </HBox>
                   <HBox minWidth="561.0" prefHeight="30.0" prefWidth="600.0">

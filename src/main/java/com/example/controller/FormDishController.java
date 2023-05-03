@@ -18,8 +18,11 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class FormDishController implements Initializable {
 
@@ -46,32 +49,37 @@ public class FormDishController implements Initializable {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 String dataJson = "[]";
+                List ingredients = new ArrayList<>();
                 try {
                     dataJson = new String(Files.readAllBytes(Paths.get("./json/ingredients.json")));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
                 JSONArray myArray = new JSONArray(dataJson);
+
                 for (int i = 0; i < myArray.length(); i++) {
                     JSONObject myJSONObject = myArray.getJSONObject(i);
                     ingreComboBox.getItems().add(myJSONObject.getString(("name")));
+                    Ingredient ingredient = new Ingredient(myJSONObject.getString("name"), myJSONObject.getString("type"));
+                    ingredients.add(ingredient);
+                }
+
+                if (ingreComboBox != null) {
+                    ingreComboBox.setOnAction(event -> {
+                        Object selectedItem = ingreComboBox.getValue();
+                        if (selectedItem != null) {
+                            Ingredient ingredient = dish.getIngredientByName(selectedItem.toString(), ingredients);
+                            dish.addIngredient(ingredient);
+                            List<String> ingredientText = dish.getIngredients().stream()
+                                    .map(Ingredient::getName)
+                                    .toList();
+                            ingreLabel.setText(String.join(", ", ingredientText));
+                        }
+                    });
                 }
             }
 
         });
-        if (ingreComboBox != null) {
-            ingreComboBox.setOnAction(event -> {
-                Object selectedItem = ingreComboBox.getValue();
-                if (selectedItem != null) {
-                    Ingredient ingredient = dish.getIngredientByName(selectedItem.toString());
-                    //dish.addIngredient(ingredient);
-                    System.out.println(ingredient);
-                    //System.out.println(dish.getIngredients());
-                }
-            });
-        }
-        //List<Ingredient> ingredientList = dish.getIngredients()
-          //      .stream()
-            //    .forEach(ingredient -> {System.out.println(ingredient);})
+
     }
 }

@@ -1,5 +1,10 @@
 package com.example.model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -35,6 +40,7 @@ public class Dish {
      */
     public Dish() {
         this.id = currentId++;
+        this.ingredients = new ArrayList<>();
     }
 
     public int getId() {
@@ -119,8 +125,8 @@ public class Dish {
     	this.ingredients.remove(ingredient);
     }
 
-    public Ingredient getIngredientByName(String name) {
-        for (Ingredient ingredient : this.ingredients) {
+    public Ingredient getIngredientByName(String name, List<Ingredient> ingredients) {
+        for (Ingredient ingredient : ingredients) {
             if (ingredient.getName().equals(name)) {
                 return ingredient;
             }
