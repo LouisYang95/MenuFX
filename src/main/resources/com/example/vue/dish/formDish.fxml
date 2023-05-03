@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.FormDishController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.dish.FormDishController">
    <children>
       <MenuBar>
         <menus>
@@ -38,28 +39,34 @@
                <children>
                   <HBox minWidth="561.0" prefHeight="30.0" prefWidth="600.0">
                      <children>
-                        <Label prefHeight="23.0" prefWidth="95.0" text="Nom :" />
+                        <Label prefHeight="23.0" prefWidth="95.0" text="Nom :">
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding></Label>
                         <TextField fx:id="nameTextField" />
-                     </children>
-                  </HBox>
-                  <HBox minWidth="561.0" prefHeight="30.0" prefWidth="600.0">
-                     <children>
-                        <Label prefHeight="23.0" prefWidth="95.0" text="Description :" />
+                        <Label prefHeight="23.0" prefWidth="95.0" text="Description :">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin></Label>
                         <TextField fx:id="descTextField" />
                      </children>
                   </HBox>
+                  <HBox minWidth="561.0" prefHeight="30.0" prefWidth="600.0" />
                   <HBox minWidth="561.0" prefHeight="30.0" prefWidth="600.0">
                      <children>
-                        <Label prefHeight="23.0" prefWidth="95.0" text="Prix :" />
+                        <Label prefHeight="23.0" prefWidth="95.0" text="Prix :">
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding></Label>
                         <TextField fx:id="priceTextField" />
-                     </children>
-                  </HBox>
-                  <HBox minWidth="561.0" prefHeight="30.0" prefWidth="600.0">
-                     <children>
-                        <Label prefHeight="23.0" prefWidth="95.0" text="Image :" />
+                        <Label prefHeight="23.0" prefWidth="95.0" text="Image :">
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding></Label>
                         <TextField fx:id="imageTextField" />
                      </children>
                   </HBox>
+                  <HBox minWidth="561.0" prefHeight="30.0" prefWidth="600.0" />
                   <HBox minWidth="561.0" prefHeight="30.0" prefWidth="600.0">
                      <children>
                         <Label prefHeight="23.0" prefWidth="95.0" text="Ingrédients :" />
@@ -73,7 +80,12 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="DishButton" mnemonicParsing="false" text="Enregistrer" />
+                        <Button fx:id="dishButton" mnemonicParsing="false" text="Enregistrer" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="dishesListLabel" prefHeight="95.0" prefWidth="602.0" />
                      </children>
                   </HBox>
                </children>

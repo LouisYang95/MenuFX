@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example.controller.dish;
 
 import com.example.model.Dish;
 import com.example.model.Ingredient;
@@ -40,6 +40,8 @@ public class FormDishController implements Initializable {
     private Label ingreLabel;
     @FXML
     private Button dishButton;
+    @FXML
+    private Label dishesListLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

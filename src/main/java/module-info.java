@@ -8,4 +8,6 @@ module com.example.menufx {
     exports com.example;
     exports com.example.controller;
     opens com.example.controller to javafx.fxml;
+    exports com.example.controller.dish;
+    opens com.example.controller.dish to javafx.fxml;
 }
