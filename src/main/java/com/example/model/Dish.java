@@ -14,11 +14,11 @@ public class Dish {
 
     /**
      * Constructor to initialize the dish
-     * @param name
-     * @param description
-     * @param price
-     * @param image
-     * @param ingredients
+     * @param name          The name of the dish
+     * @param description   The description of the dish
+     * @param price         The price of the dish
+     * @param image         The image of the dish
+     * @param ingredients   The ingredients of the dish
      */
     public Dish(String name, String description, double price, String image, String ingredients) {
         this.name = name;
