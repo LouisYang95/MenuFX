@@ -1,0 +1,32 @@
+{
+  "dishes": [
+    {
+      "name": "Pâtes à la bolognaise",
+      "description": "Des pâtes servies avec une sauce tomate et de la viande hachée",
+      "price": 9.99,
+      "image": "https://example.com/pates-bolognaise.jpg",
+      "ingredients": "pâtes, tomates, viande hachée, oignon, ail, huile d'olive, sel, poivre"
+    },
+    {
+      "name": "Pizza Margherita",
+      "description": "Une pizza classique avec de la sauce tomate, du fromage et des herbes",
+      "price": 12.99,
+      "image": "https://example.com/pizza-margherita.jpg",
+      "ingredients": "pâte à pizza, tomates, fromage mozzarella, basilic, huile d'olive, sel, poivre"
+    },
+    {
+      "name": "Burger au bacon",
+      "description": "Un burger garni de bacon grillé et de fromage cheddar fondu",
+      "price": 11.99,
+      "image": "https://example.com/burger-bacon.jpg",
+      "ingredients": "pain à burger, steak haché, bacon, fromage cheddar, laitue, tomate, ketchup, moutarde, mayonnaise"
+    },
+    {
+      "name": "Salade César",
+      "description": "Une salade classique avec du poulet grillé, du parmesan et une vinaigrette César",
+      "price": 8.99,
+      "image": "https://example.com/salade-cesar.jpg",
+      "ingredients": "laitue romaine, poulet grillé, parmesan râpé, croûtons, vinaigrette César"
+    }
+  ]
+}
