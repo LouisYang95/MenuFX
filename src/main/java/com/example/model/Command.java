@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Command {
     private int id;
+    private int idClient;
     private static int currentId = 0 ;
     private List<Dish> dishes;
 
@@ -18,10 +19,11 @@ public class Command {
         this.table = table;
     }
 
-    public Command(List<Dish> dishes, String status, Table table){
+    public Command(List<Dish> dishes, String status, Table table, int idClient){
         this.dishes = dishes;
         this.status = status;
         this.table = table;
+        this.idClient = idClient;
     }
 
     public int getId() {
@@ -58,5 +60,13 @@ public class Command {
 
     public void setTable(Table table) {
         this.table = table;
+    }
+
+    public int getIdClient() {
+        return idClient;
+    }
+
+    public void setIdClient(int idClient) {
+        this.idClient = idClient;
     }
 }

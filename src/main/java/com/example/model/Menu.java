@@ -8,7 +8,7 @@ import java.util.List;
 public class Menu {
     private List<Dish> dishes;
 
-    public Menu(List<Dish> dishes, int totalPrice) {
+    public Menu(List<Dish> dishes) {
         this.dishes = dishes;
     }
     /**
@@ -19,7 +19,7 @@ public class Menu {
     }
     /**
      * Get the list of dishes
-     * @return
+     * @return The list of dishes
      */
     public List<Dish> getDishes() {
         return dishes;
@@ -27,7 +27,7 @@ public class Menu {
 
     /**
      * Add a dish to the menu
-     * @param dish
+     * @param dish The dish to add
      */
     public void addDish(Dish dish) {
         dishes.add(dish);
@@ -35,7 +35,7 @@ public class Menu {
 
     /**
      * Remove a dish from the menu
-     * @param dish
+     * @param dish The dish to remove
      */
     public void removeDish(Dish dish) {
         dishes.remove(dish);
