@@ -1,0 +1,94 @@
+[
+  {
+    "name": "Pâtes",
+    "type": "féculent"
+  },
+  {
+    "name": "Tomates",
+    "type": "légume"
+  },
+  {
+    "name": "Viande hachée",
+    "type": "protéine"
+  },
+  {
+    "name": "Oignon",
+    "type": "légume"
+  },
+  {
+    "name": "Ail",
+    "type": "condiment"
+  },
+  {
+    "name": "Huile d'olive",
+    "type": "condiment"
+  },
+  {
+    "name": "Sel",
+    "type": "condiment"
+  },
+  {
+    "name": "Poivre",
+    "type": "condiment"
+  },
+  {
+    "name": "Pâte à pizza",
+    "type": "féculent"
+  },
+  {
+    "name": "Fromage mozzarella",
+    "type": "produit laitier"
+  },
+  {
+    "name": "Basilic",
+    "type": "herbe"
+  },
+  {
+    "name": "Steak haché",
+    "type": "protéine"
+  },
+  {
+    "name": "Bacon",
+    "type": "viande"
+  },
+  {
+    "name": "Fromage cheddar",
+    "type": "produit laitier"
+  },
+  {
+    "name": "Laitue",
+    "type": "légume"
+  },
+  {
+    "name": "Tomate",
+    "type": "légume"
+  },
+  {
+    "name": "Ketchup",
+    "type": "condiment"
+  },
+  {
+    "name": "Moutarde",
+    "type": "condiment"
+  },
+  {
+    "name": "Mayonnaise",
+    "type": "condiment"
+  },
+  {
+    "name": "Parmesan râpé",
+    "type": "produit laitier"
+  },
+  {
+    "name": "Croûtons",
+    "type": "pain"
+  },
+  {
+    "name": "Vinaigrette César",
+    "type": "sauce"
+  },
+  {
+    "name": "Poulet grillé",
+    "type": "protéine"
+  }
+]

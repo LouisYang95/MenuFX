@@ -119,4 +119,14 @@ public class Dish {
     	this.ingredients.remove(ingredient);
     }
 
+    public Ingredient getIngredientByName(String name) {
+        for (Ingredient ingredient : this.ingredients) {
+            if (ingredient.getName().equals(name)) {
+                return ingredient;
+            }
+        }
+        return null;
+    }
+
+
 }
