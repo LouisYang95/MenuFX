@@ -1,4 +1,4 @@
-package com.example.menufx;
+package com.example;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

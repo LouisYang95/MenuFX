@@ -3,6 +3,6 @@ module com.example.menufx {
     requires javafx.fxml;
             
                             
-    opens com.example.menufx to javafx.fxml;
-    exports com.example.menufx;
+    opens com.example to javafx.fxml;
+    exports com.example;
 }
