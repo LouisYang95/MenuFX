@@ -1,5 +1,12 @@
 package com.example.model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 /**
  *  Dish class to create a new dish.
  */
@@ -10,17 +17,17 @@ public class Dish {
     private String description;
     private double price;
     private String image;
-    private String ingredients;
+    private List<Ingredient> ingredients;
 
     /**
      * Constructor to initialize the dish
-     * @param name
-     * @param description
-     * @param price
-     * @param image
-     * @param ingredients
+     * @param name          The name of the dish
+     * @param description   The description of the dish
+     * @param price         The price of the dish
+     * @param image         The image of the dish
+     * @param ingredients   The ingredients of the dish
      */
-    public Dish(String name, String description, double price, String image, String ingredients) {
+    public Dish(String name, String description, double price, String image, List<Ingredient> ingredients) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -33,6 +40,7 @@ public class Dish {
      */
     public Dish() {
         this.id = currentId++;
+        this.ingredients = new ArrayList<>();
     }
 
     public int getId() {
@@ -105,15 +113,26 @@ public class Dish {
      *
      * @return The ingredients of the dish
      */
-    public String getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
-    /**
-     * Change the dish's ingredients.
-     *
-     * @param ingredient The new ingredients of the dish
-     */
-    public void setIngredients(String ingredient) {
-        ingredients = ingredient;
+
+    public void addIngredient(Ingredient ingredient) {
+    	this.ingredients.add(ingredient);
     }
+
+    public void removeIngredient(Ingredient ingredient) {
+    	this.ingredients.remove(ingredient);
+    }
+
+    public Ingredient getIngredientByName(String name, List<Ingredient> ingredients) {
+        for (Ingredient ingredient : ingredients) {
+            if (ingredient.getName().equals(name)) {
+                return ingredient;
+            }
+        }
+        return null;
+    }
+
+
 }
