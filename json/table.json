@@ -1,0 +1,30 @@
+[
+  {
+    "id": 0,
+    "number": 1,
+    "command": null,
+    "isFree": true,
+    "nbSeats": 4
+  },
+  {
+    "id": 1,
+    "number": 2,
+    "command": null,
+    "isFree": true,
+    "nbSeats": 2
+  },
+  {
+    "id": 2,
+    "number": 3,
+    "command": null,
+    "isFree": true,
+    "nbSeats": 6
+  },
+  {
+    "id": 3,
+    "number": 4,
+    "command": null,
+    "isFree": false,
+    "nbSeats": 8
+  }
+]
