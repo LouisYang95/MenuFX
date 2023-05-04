@@ -1,6 +1,8 @@
 package com.example.controller.command;
 
 import com.example.model.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,6 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
@@ -122,35 +125,51 @@ public class formCommandsController implements Initializable {
         dishCommandComboBox.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
+
+                Menu menu = new Menu();
                 String dataJson = "[]";
-                List dishes = new ArrayList<>();
+                List<Ingredient> ingredients = new ArrayList<>();
                 try {
                     dataJson = new String(Files.readAllBytes(Paths.get("./json/dish.json")));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                dishCommandComboBox.getItems().clear();
-                JSONArray myArray = new JSONArray(dataJson);
-
-                for (int i = 0; i < myArray.length(); i++) {
-                    JSONObject myJSONObject = myArray.getJSONObject(i);
-                    dishCommandComboBox.getItems().add(myJSONObject.getString(("name")));
-                    JSONArray ingredientsArray = myJSONObject.getJSONArray("ingredients");
-                    List<Ingredient> ingredients = new ArrayList<>();
-                    for (int j = 0; j < ingredientsArray.length(); j++) {
-                        JSONObject ingredientJson = ingredientsArray.getJSONObject(j);
-                        Ingredient ingredient = new Ingredient(
-                                ingredientJson.getString("name"),
-                                ingredientJson.getString("type")
-                        );
-                        ingredients.add(ingredient);
-                    }
-                    Dish dish = new Dish(myJSONObject.getString("name"), myJSONObject.getString("description"), myJSONObject.getDouble("price"), myJSONObject.getString("image"), ingredients);
-                    dishes.add(dish);
+                String ingredientJson = "[]";
+                try{
+                    ingredientJson = new String(Files.readAllBytes(Paths.get("./json/ingredients.json")));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
+                dishCommandComboBox.getItems().clear();
+
+                JSONArray myArray = new JSONArray(dataJson);
+                JSONArray myArrayIngredients = new JSONArray(ingredientJson);
+                myArrayIngredients.forEach(ingredientObj -> {
+                    JSONObject ingredientJSON = (JSONObject) ingredientObj;
+                    String name = ingredientJSON.getString("name");
+                    String type = ingredientJSON.getString("type");
+                    Ingredient ingredient = new Ingredient(name, type);
+                    ingredients.add(ingredient);
+                });
+                myArray.toList().stream().map(element -> (Map<String, Object>) element).map(JSONObject::new).forEach(myJSONObject -> {
+                    List<Ingredient> ingredientList = new ArrayList<>();
+
+                    myJSONObject.getJSONArray("ingredients").toList().forEach(ingredient -> ingredients.stream().forEach(ingredient1 -> {
+                        if (ingredient1.getName().equals(ingredient)) {
+                            ingredientList.add(ingredient1);
+                        }
+                    }));
+                    menu.addDish(new Dish(myJSONObject.getString("name"), myJSONObject.getString("description"),
+                            Double.parseDouble(myJSONObject.getString("price")),
+                            myJSONObject.getString("image"),
+                            ingredientList));
+                    dishCommandComboBox.getItems().add(myJSONObject.getString("name"));
+                });
+
 
                 if (dishCommandComboBox != null) {
                     dishCommandComboBox.setOnAction(event -> {
+                        List<Dish> dishes = menu.getDishes();
                         Object selectedItem = dishCommandComboBox.getValue();
                         if (selectedItem != null) {
                             Dish dish = (Dish) command.getDishes(selectedItem.toString(), dishes);
