@@ -36,7 +36,15 @@ public class FormTablesController implements Initializable {
     @FXML
     private Button displayTableList;
     @FXML
+    private Button displayTableFreeList;
+    @FXML
+    private Button displayTableNonFreeList;
+    @FXML
     private Label displayTablesLabel;
+    @FXML
+    private Label displayTablesFreeLabel;
+    @FXML
+    private Label displayTablesNonFreeLabel;
     @FXML
     private TextField specifyTableTexfield;
     @FXML
@@ -66,7 +74,6 @@ public class FormTablesController implements Initializable {
 
         Restaurant restaurant = new Restaurant();
 
-
         displayTableList.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -85,8 +92,56 @@ public class FormTablesController implements Initializable {
                 for (int i = 0; i < myArray.length(); i++) {
                     JSONObject myJSONObject = myArray.getJSONObject(i);
                     System.out.println(myJSONObject);
+                    displayTablesLabel.setText(displayTablesLabel.getText() + " id:" + myJSONObject.getInt("id"));
+                }
+            }
+        });
+
+        displayTableFreeList.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                String dataJson = "[]";
+                List tables = new ArrayList<>();
+                try {
+                    dataJson = new String(Files.readAllBytes(Paths.get("./json/table.json")));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                JSONArray myArray = new JSONArray(dataJson);
+
+                // Efface le texte précédent
+                displayTablesFreeLabel.setText("");
+
+                for (int i = 0; i < myArray.length(); i++) {
+                    JSONObject myJSONObject = myArray.getJSONObject(i);
+                    System.out.println(myJSONObject);
                     if (myJSONObject.getBoolean("isFree")) {
-                        displayTablesLabel.setText(displayTablesLabel.getText() + " id:" + myJSONObject.getInt("id"));
+                        displayTablesFreeLabel.setText(displayTablesFreeLabel.getText() + " id:" + myJSONObject.getInt("id"));
+                    }
+                }
+            }
+        });
+
+        displayTableNonFreeList.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                String dataJson = "[]";
+                List tables = new ArrayList<>();
+                try {
+                    dataJson = new String(Files.readAllBytes(Paths.get("./json/table.json")));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                JSONArray myArray = new JSONArray(dataJson);
+
+                // Efface le texte précédent
+                displayTablesNonFreeLabel.setText("");
+
+                for (int i = 0; i < myArray.length(); i++) {
+                    JSONObject myJSONObject = myArray.getJSONObject(i);
+                    System.out.println(myJSONObject);
+                    if (!myJSONObject.getBoolean("isFree")) {
+                        displayTablesNonFreeLabel.setText(displayTablesNonFreeLabel.getText() + " id:" + myJSONObject.getInt("id"));
                     }
                 }
             }

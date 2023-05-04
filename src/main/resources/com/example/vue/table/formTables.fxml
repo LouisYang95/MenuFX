@@ -59,13 +59,25 @@
                      </children>
                   </HBox>
                   <Button fx:id="displayTableList" mnemonicParsing="false" text="Afficher la liste des tables" />
+                  <Button fx:id="displayTableFreeList" mnemonicParsing="false" text="Afficher la liste des tables disponibles : " />
+                  <Button fx:id="displayTableNonFreeList" mnemonicParsing="false" text="Afficher la liste des tables non disponibles : " />
                </children>
             </VBox>
          </children>
       </AnchorPane>
-      <HBox prefHeight="260.0" prefWidth="600.0">
+      <HBox prefHeight="52.0" prefWidth="600.0">
          <children>
-            <Label fx:id="displayTablesLabel" prefHeight="223.0" prefWidth="600.0" />
+            <Label fx:id="displayTablesLabel" prefHeight="49.0" prefWidth="600.0" />
+         </children>
+      </HBox>
+      <HBox prefHeight="52.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="displayTablesFreeLabel" prefHeight="49.0" prefWidth="600.0" />
+         </children>
+      </HBox>
+      <HBox prefHeight="52.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="displayTablesNonFreeLabel" prefHeight="49.0" prefWidth="600.0" />
          </children>
       </HBox>
    </children>
