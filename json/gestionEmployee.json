@@ -1,0 +1,29 @@
+
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Abed",
+      "position": "Server",
+      "hours_worked": 12
+    },
+    {
+      "id": 2,
+      "name": "Alan",
+      "position": "Cuisinier",
+      "hours_worked": 14
+    },
+    {
+      "id": 3,
+      "name": "Louis",
+      "position": "Server",
+      "hours_worked": 11
+    },
+    {
+      "id": 4,
+      "name": "Passi",
+      "position": "Cuisinier",
+      "hours_worked": 13
+    }
+  ]
+}

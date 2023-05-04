@@ -1,0 +1,25 @@
+{
+  "employees": [
+    {
+      "name": "Abed",
+      "position": "Server",
+      "hours_worked": 12
+    },
+    {
+      "name": "Alan",
+      "position": "Cuisinier",
+      "hours_worked": 14
+    },
+    {
+      "name": "Louis",
+      "position": "Server",
+      "hours_worked": 11
+    },
+    {
+      "name": "Passi",
+      "position": "Cuisinier",
+      "hours_worked": 13
+    }
+  ]
+}
+
