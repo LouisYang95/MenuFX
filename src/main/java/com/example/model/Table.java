@@ -1,17 +1,21 @@
 package com.example.model;
 
 public class Table {
+
+    private static int lastTableNumber = 0;
     private int id;
 
     private int number;
     private Command command;
     private boolean isFree;
+    private int nbSeats;
 
 
-    public Table(int id, int number) {
-        this.id = id;
-        this.number = number;
+    public Table(int nbSeats) {
+        this.id = lastTableNumber++;
+        this.number = lastTableNumber;
         this.isFree = true;
+        this.nbSeats = nbSeats;
     }
 
 
@@ -46,6 +50,8 @@ public class Table {
     public void setCommand(Command command) {
         this.command = command;
     }
+    public int getNbSeats() { return nbSeats; }
+    public void setNbSeats(int nbSeats) { this.nbSeats = nbSeats; }
 
     public void freeTable(){
         this.isFree = true;

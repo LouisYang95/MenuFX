@@ -1,0 +1,25 @@
+{
+  "tables": [
+    {
+      "id": 0,
+      "number": 1,
+      "command": null,
+      "isFree": true,
+      "nbSeats": 4
+    },
+    {
+      "id": 1,
+      "number": 2,
+      "command": null,
+      "isFree": true,
+      "nbSeats": 2
+    },
+    {
+      "id": 2,
+      "number": 3,
+      "command": null,
+      "isFree": true,
+      "nbSeats": 6
+    }
+  ]
+}
