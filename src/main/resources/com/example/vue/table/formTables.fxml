@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.table.FormTablesController">
    <children>
       <MenuBar>
         <menus>
@@ -34,18 +33,34 @@
       </MenuBar>
       <AnchorPane prefHeight="103.0" prefWidth="600.0">
          <children>
-            <VBox layoutX="17.0" layoutY="22.0" prefHeight="200.0" prefWidth="575.0">
+            <VBox layoutX="17.0" layoutY="22.0" prefHeight="75.0" prefWidth="575.0">
                <children>
                   <HBox prefHeight="93.0" prefWidth="584.0">
                      <children>
-                        <Label text="Ajouter une table " />
-                        <TextField fx:id="addTableTextfield" />
-                        <Button fx:id="addTableButton" mnemonicParsing="false" text="Enregistrer" />
+                        <Label text="Nombre de places : " />
+                        <TextField fx:id="specifyTableTexfield" />
                      </children>
                   </HBox>
+                  <HBox prefHeight="93.0" prefWidth="584.0">
+                     <children>
+                        <Button fx:id="navToListTable" mnemonicParsing="false" text="Enregistrer" />
+                        <Button fx:id="deleteTableButton" mnemonicParsing="false" text="Supprimer" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="69.0" prefWidth="573.0">
+                     <children>
+                        <Button fx:id="nextPageToListTable" mnemonicParsing="false" onAction="#switchToTableListScreen" text="Voir la liste de tables" />
+                     </children>
+                  </HBox>
+                  <Button fx:id="displayTableList" mnemonicParsing="false" text="Afficher la liste des tables" />
                </children>
             </VBox>
          </children>
       </AnchorPane>
+      <HBox prefHeight="260.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="displayTablesLabel" prefHeight="223.0" prefWidth="600.0" />
+         </children>
+      </HBox>
    </children>
 </VBox>
