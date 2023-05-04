@@ -112,7 +112,6 @@ public class ListDishController implements Initializable {
 
                 String imageUrl = newSelection.getImage();
                 if(imageUrl != null) {
-                    System.out.println(imageUrl);
                     Image image = new Image(imageUrl);
                     imgLabel.setImage(image);
                 }
