@@ -1,6 +1,4 @@
 [
-  {
-    "dishes": [
       {
         "name": "Pâtes à la bolognaise",
         "description": "Des pâtes servies avec une sauce tomate et de la viande hachée",
@@ -29,6 +27,4 @@
         "image": "https://example.com/salade-cesar.jpg",
         "ingredients": "laitue romaine, poulet grillé, parmesan râpé, croûtons, vinaigrette César"
       }
-    ]
-  }
 ]

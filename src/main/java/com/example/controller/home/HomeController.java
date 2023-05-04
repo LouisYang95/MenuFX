@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class HomeController {
     public void switchToThisScreen(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/dish/formDish.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/command/formCommands.fxml"));
         Parent root = loader.load();
         Scene dishScene = new Scene(root);
 
