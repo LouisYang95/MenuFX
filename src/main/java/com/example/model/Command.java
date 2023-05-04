@@ -13,10 +13,9 @@ public class Command {
 
     private String status;
 
-    public Command(Table table){
+    public Command(){
         this.dishes = new ArrayList<>();
         this.id = currentId++;
-        this.table = table;
     }
 
     public Command(List<Dish> dishes, String status, Table table, int idClient){
