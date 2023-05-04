@@ -19,9 +19,14 @@ public class Restaurant {
         this.tables = tables;
     }
 
-    public void addTable(Table table) {
-        this.tables.add(table);
+    public void addTable(int nbSeats) {
+        int nextId = tables.size() + 1;
+        int nextTableNumber = Table.setLastTableNumber(this.tables);
+        Table newTable = new Table(nextId, nextTableNumber, nbSeats);
+        tables.add(newTable);
     }
+
+
 
     public boolean removeTable(int tableNumber) {
         for (Table table : this.tables) {

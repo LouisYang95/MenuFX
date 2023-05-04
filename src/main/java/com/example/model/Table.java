@@ -15,17 +15,19 @@ public class Table {
     private int nbSeats;
     private List<Table> tables;
 
-    public Table(int lastTableNumber, int nbSeats) {
-        this.id = lastTableNumber++;
+    public Table(int nbSeats, int seats) {
+        this.id = ++lastTableNumber;
         this.number = lastTableNumber;
         this.isFree = true;
         this.nbSeats = nbSeats;
         this.tables = new ArrayList<>();
     }
 
-
-    public Table() {
-        this.id = lastTableNumber++;
+    public Table(int id, int number, int nbSeats) {
+        this.id = id;
+        this.number = number;
+        this.isFree = true;
+        this.nbSeats = nbSeats;
         this.tables = new ArrayList<>();
     }
 
@@ -77,6 +79,22 @@ public class Table {
         }
         return false;
     }
+
+    public static int setLastTableNumber(List<Table> tables) {
+        int maxTableNumber = 0;
+        for (Table table : tables) {
+            if (table.getNumber() > maxTableNumber) {
+                maxTableNumber = table.getNumber();
+            }
+        }
+        return maxTableNumber + 1;
+    }
+
+    public void assignCommand(Command command) {
+        this.command = command;
+        this.isFree = false;
+    }
+
     public void freeTable(){
         this.isFree = true;
         this.command = null;

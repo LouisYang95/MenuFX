@@ -37,13 +37,19 @@
                <children>
                   <HBox prefHeight="93.0" prefWidth="584.0">
                      <children>
-                        <Label text="Nombre de places : " />
-                        <TextField fx:id="specifyTableTexfield" />
+                        <Label prefHeight="17.0" prefWidth="109.0" text="Nombre de places : " />
+                        <TextField fx:id="specifyTableTexfield" prefHeight="26.0" prefWidth="74.0" />
+                        <Label text=" id : " />
+                        <TextField fx:id="specifyTableIdTextfield" prefHeight="26.0" prefWidth="98.0" />
+                        <Label text="number" />
+                        <TextField fx:id="specifyTableNumberTextfield" prefHeight="26.0" prefWidth="98.0" />
+                        <Button fx:id="registerTableButton" mnemonicParsing="false" text="Enregistrer" />
                      </children>
                   </HBox>
                   <HBox prefHeight="93.0" prefWidth="584.0">
                      <children>
-                        <Button fx:id="navToListTable" mnemonicParsing="false" text="Enregistrer" />
+                        <Label text="Numéro de la table : " />
+                        <TextField fx:id="specifyNumberTableDeleteButton" prefHeight="26.0" prefWidth="98.0" />
                         <Button fx:id="deleteTableButton" mnemonicParsing="false" text="Supprimer" />
                      </children>
                   </HBox>
