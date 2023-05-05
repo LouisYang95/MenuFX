@@ -47,30 +47,35 @@
                         <Button fx:id="deleteEmployeeButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="312.0" text="Supprimer un employé" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="38.0" prefWidth="600.0">
+                  <VBox prefHeight="190.0" prefWidth="600.0">
                      <children>
-                        <Label fx:id="displayEmployeeLabel11" prefHeight="27.0" prefWidth="110.0" text="Nom de l'employé : " />
-                        <TextField fx:id="specifyNumberTableAddTextfield" prefHeight="26.0" prefWidth="98.0" />
+                        <HBox prefHeight="38.0" prefWidth="600.0">
+                           <children>
+                              <Label fx:id="displayEmployeeLabel111" prefHeight="27.0" prefWidth="110.0" text="Position de l'employé : " />
+                              <TextField fx:id="specifyNumberTableAddPositionTextfield" prefHeight="26.0" prefWidth="98.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="38.0" prefWidth="600.0">
+                           <children>
+                              <Label fx:id="displayEmployeeLabel11" prefHeight="27.0" prefWidth="110.0" text="Nom de l'employé : " />
+                              <TextField fx:id="specifyNumberTableAddTextfield" prefHeight="26.0" prefWidth="98.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="38.0" prefWidth="600.0">
+                           <children>
+                              <Label fx:id="displayEmployeeLabel112" prefHeight="27.0" prefWidth="110.0" text="Nombre d'heures" />
+                              <TextField fx:id="specifyNumberTableAddHoursTextfield" prefHeight="26.0" prefWidth="98.0" />
+                           </children>
+                        </HBox>
                         <Button fx:id="addEmployeeButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="312.0" text="Ajouter un employé" />
                      </children>
-                  </HBox>
-                  <HBox prefHeight="38.0" prefWidth="600.0">
+                  </VBox>
+                  <HBox prefHeight="104.0" prefWidth="600.0">
                      <children>
-                        <Label fx:id="displayEmployeeLabel111" prefHeight="27.0" prefWidth="110.0" text="Position de l'employé : " />
-                        <TextField fx:id="specifyNumberTableAddPositionTextfield" prefHeight="26.0" prefWidth="98.0" />
+                        <Label fx:id="displayEmployeeLabel" prefHeight="102.0" prefWidth="601.0" wrapText="true" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="38.0" prefWidth="600.0">
-                     <children>
-                        <Label fx:id="displayEmployeeLabel112" prefHeight="27.0" prefWidth="110.0" text="Nombre d'heures" />
-                        <TextField fx:id="specifyNumberTableAddHoursTextfield" prefHeight="26.0" prefWidth="98.0" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="38.0" prefWidth="600.0">
-                     <children>
-                        <Label fx:id="displayEmployeeLabel" prefHeight="108.0" prefWidth="606.0" />
-                     </children>
-                  </HBox>
+                  <Button fx:id="backToMenu" mnemonicParsing="false" prefHeight="26.0" prefWidth="602.0" text="Retour au menu" />
                </children>
             </VBox>
          </children>

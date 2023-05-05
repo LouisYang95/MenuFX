@@ -100,6 +100,11 @@
                            <HBox.margin>
                               <Insets left="20.0" top="10.0" />
                            </HBox.margin></Button>
+                        <Button fx:id="backToList" mnemonicParsing="false" text="retour à la liste">
+                           <HBox.margin>
+                              <Insets left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
                             </children>
                         </HBox>
                     </children>

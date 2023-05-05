@@ -92,7 +92,7 @@
                                     </Label>
                                     <ScrollPane>
                                        <content>
-                                          <Label fx:id="descLabel" alignment="TOP_LEFT" prefHeight="47.0" prefWidth="1088.0" text="sdsdsdfasdf" wrapText="true">
+                                          <Label fx:id="descLabel" alignment="TOP_LEFT" prefHeight="47.0" prefWidth="1088.0" wrapText="true">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>

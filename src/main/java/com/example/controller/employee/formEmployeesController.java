@@ -5,12 +5,17 @@ import com.example.model.Restaurant;
 import com.example.model.Table;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -40,6 +45,8 @@ public class formEmployeesController implements Initializable {
     private TextField specifyNumberTableAddPositionTextfield;
     @FXML
     private TextField specifyNumberTableAddHoursTextfield;
+    @FXML
+    private Button backToMenu;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -194,6 +201,18 @@ public class formEmployeesController implements Initializable {
 
             }
         });
+        backToMenu.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/home/home.fxml"));
+                Parent root = loader.load();
+                Scene dishScene = new Scene(root);
 
+                Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                currentStage.setScene(dishScene);
+                currentStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }

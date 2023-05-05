@@ -24,7 +24,7 @@ public class Restaurant {
     public void addTable(int nbSeats) {
         int nextId = tables.size() + 1;
         int nextTableNumber = Table.setLastTableNumber(this.tables);
-        Table newTable = new Table(nextId, nextTableNumber, nbSeats);
+        Table newTable = new Table(nextTableNumber, nbSeats);
         tables.add(newTable);
     }
 

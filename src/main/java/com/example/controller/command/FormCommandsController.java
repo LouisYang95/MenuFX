@@ -41,6 +41,8 @@ public class FormCommandsController implements Initializable {
     private Label dishCommandLabel;
     @FXML
     private Button commandButton;
+    @FXML
+    private Button backToList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -184,6 +186,13 @@ public class FormCommandsController implements Initializable {
             } catch (IOException e) {
                 throw new JSONException(e);
             }
+            try{
+                goToMenu(mouseEvent);
+            }catch (IOException e){
+                throw new NullPointerException();
+            }
+        });
+        backToList.setOnMousePressed(mouseEvent -> {
             try{
                 goToMenu(mouseEvent);
             }catch (IOException e){

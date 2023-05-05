@@ -44,6 +44,9 @@ public class FormDishController implements Initializable {
     private Button dishButton;
     @FXML
     private Label dishesListLabel;
+    @FXML
+    private Button backToList;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -111,6 +114,15 @@ public class FormDishController implements Initializable {
                 throw new NullPointerException();
             }
         });
+        backToList.setOnMousePressed(
+                mouseEvent -> {
+                    try {
+                        goToListScreen(mouseEvent);
+                    } catch (IOException e) {
+                        throw new NullPointerException();
+                    }
+                }
+        );
 
     }
 

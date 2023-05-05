@@ -59,8 +59,10 @@ public class FormTablesController implements Initializable {
     private TextField specifyNumberTableDeleteButton;
 
     @FXML
+    private Button homeButton;
+    @FXML
     void switchToTableListScreen(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/table/listTables.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/table/formTables.fxml"));
         Parent root = loader.load();
         Scene tablesScene = new Scene(root);
 
@@ -236,7 +238,7 @@ public class FormTablesController implements Initializable {
                 int nbSeats = Integer.parseInt(specifyTableTexfield.getText());
 
                 // Création de la nouvelle table avec un ID et un numéro spécifié
-                Table newTable = new Table(id, numero, nbSeats);
+                Table newTable = new Table( numero, nbSeats);
 
                 // Mise à jour du fichier JSON
                 try {
@@ -257,6 +259,19 @@ public class FormTablesController implements Initializable {
                 }
             }
 
+        });
+        homeButton.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/home/home.fxml"));
+                Parent root = loader.load();
+                Scene dishScene = new Scene(root);
+
+                Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                currentStage.setScene(dishScene);
+                currentStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
     }
 }

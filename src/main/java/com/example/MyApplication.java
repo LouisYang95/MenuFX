@@ -13,9 +13,9 @@ import java.io.IOException;
 public class MyApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MyApplication.class.getResource("/com/example/vue/employee/formEmployees.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MyApplication.class.getResource("/com/example/vue/home/home.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Tables");
+        stage.setTitle("Home");
         stage.setScene(scene);
         stage.show();
     }
@@ -23,5 +23,4 @@ public class MyApplication extends Application {
 
     public static void main(String[] args) {
         launch();
-    }
-}
+    }}

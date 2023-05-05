@@ -54,6 +54,8 @@ public class ListCommandsController implements Initializable {
     private Button cancelCommandBtn;
     @FXML
     private Button homeButton;
+    @FXML
+    private Button addCommand;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -212,6 +214,21 @@ public class ListCommandsController implements Initializable {
                 }
             }
         });
+        addCommand.setOnMousePressed(
+                mouseEvent -> {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/command/formCommands.fxml"));
+                        Parent root = loader.load();
+                        Scene commandScene = new Scene(root);
+
+                        Stage currentStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+                        currentStage.setScene(commandScene);
+                        currentStage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+        );
         homeButton.setOnAction(event -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/home/home.fxml"));

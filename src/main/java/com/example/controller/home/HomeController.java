@@ -29,7 +29,7 @@ public class HomeController {
         currentStage.show();
     }
     public void switchToTablePage(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/command/listTable.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/table/formTables.fxml"));
         Parent root = loader.load();
         Scene dishScene = new Scene(root);
 
@@ -38,7 +38,7 @@ public class HomeController {
         currentStage.show();
     }
     public void switchToEmployeePage(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/command/listEmployees.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/employee/formEmployees.fxml"));
         Parent root = loader.load();
         Scene dishScene = new Scene(root);
 
@@ -47,7 +47,7 @@ public class HomeController {
         currentStage.show();
     }
     public void switchToDashboardPage(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/command/dashBoard.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/dashboard/dashBoard.fxml"));
         Parent root = loader.load();
         Scene dishScene = new Scene(root);
 
