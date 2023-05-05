@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.command.formCommandsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.command.FormCommandsController">
     <children>
         <MenuBar>
             <menus>
@@ -36,17 +36,17 @@
             <children>
                 <VBox prefHeight="373.0" prefWidth="600.0">
                     <children>
-                        <HBox minWidth="561.0" prefHeight="30.0" prefWidth="600.0">
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="600.0">
                             <children>
-                                <Label prefHeight="23.0" prefWidth="95.0" text="Client :">
+                                <Label alignment="CENTER" prefHeight="23.0" prefWidth="136.0" text="Client :" textAlignment="CENTER">
                                     <padding>
                                         <Insets left="20.0" />
                                     </padding>
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin></Label>
-                        <ComboBox fx:id="clientCommandComboBox" prefWidth="150.0" />
-                        <Label fx:id="clientCommandLabel" prefHeight="24.0" prefWidth="300.0">
+                        <ComboBox fx:id="clientCommandComboBox" prefHeight="26.0" prefWidth="174.0" />
+                        <Label fx:id="clientCommandLabel" prefHeight="24.0" prefWidth="300.0" wrapText="true">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
@@ -56,13 +56,13 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                         </HBox>
-                  <HBox prefHeight="30.0" prefWidth="600.0">
+                  <HBox alignment="CENTER" prefHeight="30.0" prefWidth="600.0">
                      <children>
-                                <Label prefHeight="23.0" prefWidth="95.0" text="Table :">
+                                <Label alignment="CENTER" prefHeight="23.0" prefWidth="127.0" text="Table :" textAlignment="CENTER">
                                     <HBox.margin>
                                         <Insets left="20.0" />
                                     </HBox.margin></Label>
-                        <ComboBox fx:id="tableCommandComboBox" prefWidth="150.0" />
+                        <ComboBox fx:id="tableCommandComboBox" prefHeight="26.0" prefWidth="162.0" />
                         <Label prefHeight="24.0" prefWidth="112.0" text="Numéro de la table :">
                            <HBox.margin>
                               <Insets left="10.0" />
@@ -78,33 +78,28 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </HBox>
-                        <HBox minWidth="561.0" prefHeight="30.0" prefWidth="600.0">
+                        <HBox alignment="CENTER" minWidth="561.0" prefHeight="80.0" prefWidth="600.0">
                             <children>
-                                <Label prefHeight="23.0" prefWidth="95.0" text="Plats :">
+                                <Label alignment="CENTER" prefHeight="23.0" prefWidth="116.0" text="Plats :" textAlignment="CENTER">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin></Label>
-                                <ComboBox fx:id="dishCommandComboBox" prefWidth="150.0">
+                                <ComboBox fx:id="dishCommandComboBox" prefHeight="26.0" prefWidth="158.0">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin></ComboBox>
-                                <Label fx:id="dishCommandLabel" prefHeight="24.0" prefWidth="300.0">
+                                <Label fx:id="dishCommandLabel" prefHeight="75.0" prefWidth="283.0" wrapText="true">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin></Label>
                             </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="226.0" prefWidth="600.0">
                             <children>
                                 <Button fx:id="commandButton" mnemonicParsing="false" text="Enregistrer">
                            <HBox.margin>
                               <Insets left="20.0" top="10.0" />
                            </HBox.margin></Button>
-                            </children>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                            <children>
-                                <Label fx:id="dishesListLabel" prefHeight="95.0" prefWidth="602.0" />
                             </children>
                         </HBox>
                     </children>

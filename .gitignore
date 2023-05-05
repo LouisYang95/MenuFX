@@ -6,6 +6,7 @@ target/
 json/*.json
 
 ### IntelliJ IDEA ###
+.idea/sonarlint/
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml

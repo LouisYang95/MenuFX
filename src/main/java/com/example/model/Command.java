@@ -1,34 +1,39 @@
 package com.example.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Command {
     private int id;
-    private int idClient;
-    private static int currentId = 0 ;
-    private List<Dish> dishes;
+    private String client;
+    private static int currentId = 0;
+    private final List<Dish> dishes;
     private int table;
     private String status;
-    private List<Client> clients;
+    private Date date;
+    private String totalPrice;
 
-    public Command(){
+    public Command() {
         this.dishes = new ArrayList<>();
         this.id = currentId++;
+        this.date = new Date();
+        this.totalPrice = "0";
     }
 
     /**
      * Constructor to initialize the command
-     * @param dishes          The dishes of the command
+     *
+     * @param dishes   The dishes of the command
      * @param status   The status of the command
-     * @param table         The table of the command
-     * @param idClient         The idClient of the command
+     * @param table    The table of the command
+     * @param client The idClient of the command
      */
-    public Command(List<Dish> dishes, String status, int table, int idClient){
+    public Command(List<Dish> dishes, String status, int table, String client) {
         this.dishes = dishes;
         this.status = status;
         this.table = table;
-        this.idClient = idClient;
+        this.client = client;
     }
 
     public int getId() {
@@ -47,16 +52,9 @@ public class Command {
         this.status = status;
     }
 
-    public List<Client> getClient() {
-        return clients;
-    }
 
-    public void setDishes(List<Dish> dishes) {
-        this.dishes = dishes;
-    }
-
-    public void addDish(Dish dish){
-        this.dishes.add(dish);
+    public void addDish(Dish dish) {
+        dishes.add(dish);
     }
 
     public int getTable() {
@@ -67,42 +65,54 @@ public class Command {
         this.table = table;
     }
 
-    public int getIdClient() {
-        return idClient;
+    public String getClient() {
+        return client;
     }
 
     public Client getNameClient(String name, List<Client> clients) {
-        for (Client  client : clients) {
-            if (client.getName().equals(name)) {
-                return client;
+        for (Client clientList : clients) {
+            if (clientList.getName().equals(name)) {
+                return clientList;
             }
         }
         return null;
     }
 
-    public void setIdClient(int idClient) {
-        this.idClient = idClient;
+    public void setClient(String client) {
+        this.client = client;
     }
 
-    public List<Dish> getDishes(String name, List<Dish> dishes) {
+    public Dish getDishesByName(String name, List<Dish> dishes) {
         for (Dish dish : dishes) {
             if (dish.getName().equals(name)) {
-                return dishes;
+                return dish;
             }
         }
         return null;
+    }
+
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public List<Dish> setDishes(List<Dish> dish){
+        return dishes;
     }
 
     public Table getTableNumber(int number, List<Table> tables) {
-        for (Table table : tables) {
-            if (table.getNumber() == number) {
-                return table;
+        for (Table tableList : tables) {
+            if (tableList.getNumber() == number) {
+                return tableList;
             }
         }
         return null;
     }
 
+    public String getTotalPrice() {
+        return totalPrice;
+    }
 
-    public void addTable(int table) {
+    public void setTotalPrice(String totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

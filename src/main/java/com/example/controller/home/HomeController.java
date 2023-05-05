@@ -10,9 +10,44 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HomeController {
-    public void switchToThisScreen(ActionEvent event) throws IOException {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/dish/listDishes.fxml"));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/command/formCommands.fxml"));
+    public void switchToDishPage(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/dish/listDishes.fxml"));
+        Parent root = loader.load();
+        Scene dishScene = new Scene(root);
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.setScene(dishScene);
+        currentStage.show();
+    }
+    public void switchToCommandPage(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/command/listCommands.fxml"));
+        Parent root = loader.load();
+        Scene dishScene = new Scene(root);
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.setScene(dishScene);
+        currentStage.show();
+    }
+    public void switchToTablePage(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/command/listTable.fxml"));
+        Parent root = loader.load();
+        Scene dishScene = new Scene(root);
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.setScene(dishScene);
+        currentStage.show();
+    }
+    public void switchToEmployeePage(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/command/listEmployees.fxml"));
+        Parent root = loader.load();
+        Scene dishScene = new Scene(root);
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.setScene(dishScene);
+        currentStage.show();
+    }
+    public void switchToDashboardPage(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/command/dashBoard.fxml"));
         Parent root = loader.load();
         Scene dishScene = new Scene(root);
 

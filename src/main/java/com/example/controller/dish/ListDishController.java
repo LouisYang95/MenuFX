@@ -54,7 +54,6 @@ public class ListDishController implements Initializable {
     private Button addDishButton;
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tabColName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -87,7 +86,7 @@ public class ListDishController implements Initializable {
         myArray.toList().stream().map(element -> (Map<String, Object>) element).map(JSONObject::new).forEach(myJSONObject -> {
             List<Ingredient> ingredientList = new ArrayList<>();
 
-            myJSONObject.getJSONArray("ingredients").toList().forEach(ingredient -> ingredients.stream().forEach(ingredient1 -> {
+            myJSONObject.getJSONArray("ingredients").toList().forEach(ingredient -> ingredients.forEach(ingredient1 -> {
                 if (ingredient1.getName().equals(ingredient)) {
                     ingredientList.add(ingredient1);
                 }
@@ -111,12 +110,11 @@ public class ListDishController implements Initializable {
                 ingredientLabel.setText(String.join(", ", ingredientNames));
 
                 String imageUrl = newSelection.getImage();
-                if(imageUrl != null) {
+                if (imageUrl != null) {
                     System.out.println(imageUrl);
                     Image image = new Image(imageUrl);
                     imgLabel.setImage(image);
-                }
-                else {
+                } else {
                     imgLabel.setImage(null);
                 }
             }
@@ -129,6 +127,7 @@ public class ListDishController implements Initializable {
             }
         });
     }
+
     public void switchToThisScreen(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/dish/formDish.fxml"));
         Parent root = loader.load();
