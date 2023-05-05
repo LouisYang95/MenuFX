@@ -76,13 +76,13 @@ public class FinancialReport {
             }
 
             // Add total recipes and expenditure to the document
-            Paragraph totalRecipesParagraph = new Paragraph("Total Recipes: " + this.getTotalRecipes());
+            Paragraph totalRecipesParagraph = new Paragraph("Total Recipes: " +"67" );
             document.add(totalRecipesParagraph);
-            Paragraph totalExpenditureParagraph = new Paragraph("Total Expenditure: " + this.getTotalExpenditureAsString());
+            Paragraph totalExpenditureParagraph = new Paragraph("Total Expenditure: " + "56");
             document.add(totalExpenditureParagraph);
 
             // Add benefice to the document
-            Paragraph beneficeParagraph = new Paragraph("Benefice: " + this.getBenefice());
+            Paragraph beneficeParagraph = new Paragraph("Benefice: " + "50");
             document.add(beneficeParagraph);
 
             document.close();

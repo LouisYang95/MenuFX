@@ -5,11 +5,11 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.example.model.FinancialReport;
-import com.itextpdf.text.pdf.TextField;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
@@ -30,11 +30,6 @@ public class formFinancialReportController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        financialReport.addExpense("50.00");
-        financialReport.addExpense("75.00");
-        financialReport.addRecipe("100.00");
-        financialReport.addRecipe("150.00");
 
         pdfButton.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override

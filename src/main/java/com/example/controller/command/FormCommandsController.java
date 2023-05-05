@@ -90,7 +90,7 @@ public class FormCommandsController implements Initializable {
             myArray.forEach(item -> {
                 JSONObject myJSONObject = (JSONObject) item;
                 tableCommandComboBox.getItems().add(myJSONObject.getInt("number"));
-                Table table = new Table(myJSONObject.getInt("number"));
+                Table table = new Table(myJSONObject.getInt("number"),5,5);
                 tables.add(table);
             });
 

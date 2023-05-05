@@ -18,6 +18,8 @@ module com.example.menufx {
     opens com.example.controller.table to javafx.fxml;
     exports com.example.controller.home;
     opens com.example.controller.home to javafx.fxml;
+    exports com.example.controller.financial;
+    opens com.example.controller.financial to javafx.fxml;
 
     opens com.example.model to javafx.base;
 }

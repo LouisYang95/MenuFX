@@ -89,20 +89,8 @@ public class Table {
     }
 
 
-    public void addTable(Table tables) {
-        this.tables.add(tables);
-    }
-    public boolean removeTable(int tableNumber) {
-        Iterator<Table> iterator = this.tables.iterator();
-        while (iterator.hasNext()) {
-            Table table = iterator.next();
-            if (table.getNumber() == tableNumber) {
-                iterator.remove();
-                return true;
-            }
-        }
-        return false;
-    }
+
+
     public void freeTable(){
         this.isFree = true;
         this.command = null;
