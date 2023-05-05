@@ -6,6 +6,7 @@ import java.util.List;
 public class Restaurant {
 
     private List<Table> tables;
+    private List<Employee> employees;
 
     public Restaurant() {
         this.tables = new ArrayList<>();
@@ -14,9 +15,15 @@ public class Restaurant {
     public List<Table> getTables() {
         return tables;
     }
+    public List<Employee> getEmployees() {
+        return employees;
+    }
 
     public void setTables(List<Table> tables) {
         this.tables = tables;
+    }
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 
     public void addTable(int nbSeats) {
@@ -26,7 +33,11 @@ public class Restaurant {
         tables.add(newTable);
     }
 
-
+    public void addEmployee(String name, String position, float hoursWorked) {
+        int nextId = employees.size() + 1;
+        Employee newEmployee = new Employee(name, position, hoursWorked);
+        employees.add(newEmployee);
+    }
 
     public boolean removeTable(int tableNumber) {
         for (Table table : this.tables) {

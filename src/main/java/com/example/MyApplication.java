@@ -10,7 +10,7 @@ import java.io.IOException;
 public class MyApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MyApplication.class.getResource("/com/example/vue/table/formTables.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MyApplication.class.getResource("/com/example/vue/employee/formEmployees.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Tables");
         stage.setScene(scene);
