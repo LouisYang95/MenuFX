@@ -85,26 +85,27 @@ public class formEmployeesController implements Initializable {
                     System.out.println(myJSONObject);
                     String name = myJSONObject.getString("name");
                     if (name.equals(employeeName)) {
-                        // Le nom de l'employé correspond à la chaîne de caractères fournie
-                        // Faites ce que vous avez à faire avec cet employé ici
+                        isEmployeeFound = true;
+                        myArray.remove(i);
+                        break;
                     }
                 }
 
-                /*if (isEmployeeFound) {
+                if (isEmployeeFound) {
                     // Mise à jour du fichier JSON
                     try {
                         String jsonString = myArray.toString();
-                        Files.write(Paths.get("./json/table.json"), jsonString.getBytes());
-                        System.out.println("La table numéro " + employeeName + " a été supprimée.");
+                        Files.write(Paths.get("./json/employee.json"), jsonString.getBytes());
+                        System.out.println("L'employé numéro " + employeeName + " a été supprimé.");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
 
                     // Mise à jour de l'objet Restaurant
-                    restaurant.remove(employeeName);
+                    restaurant.removeEmployee(employeeName);
                 } else {
-                    System.out.println("La table numéro " + employeeName + " n'a pas été trouvée.");
-                }*/
+                    System.out.println("L'employé numéro " + employeeName + " n'a pas été trouvé.");
+                }
             }
         });
 

@@ -19,12 +19,7 @@ public class Restaurant {
         return employees;
     }
 
-    public void setTables(List<Table> tables) {
-        this.tables = tables;
-    }
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
-    }
+    
 
     public void addTable(int nbSeats) {
         int nextId = tables.size() + 1;
@@ -43,6 +38,16 @@ public class Restaurant {
         for (Table table : this.tables) {
             if (table.getNumber() == tableNumber) {
                 this.tables.remove(table);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean removeEmployee(String employeeName) {
+        for (Employee employee : this.employees) {
+            if (employee.getName() == employeeName) {
+                this.employees.remove(employee);
                 return true;
             }
         }
