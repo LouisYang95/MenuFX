@@ -46,11 +46,11 @@ public class Restaurant {
      *
      * @param name
      * @param position
-     * @param hoursWorked
+     * @param age
      */
-    public void addEmployee(String name, String position, float hoursWorked) {
+    public void addEmployee(String name, String position, int age) {
         int nextId = employees.size() + 1;
-        Employee newEmployee = new Employee(name);
+        Employee newEmployee = new Employee(name, age);
         employees.add(newEmployee);
     }
 

@@ -63,7 +63,7 @@
                         </HBox>
                         <HBox prefHeight="38.0" prefWidth="600.0">
                            <children>
-                              <Label fx:id="displayEmployeeLabel112" prefHeight="27.0" prefWidth="110.0" text="Nombre d'heures" />
+                              <Label fx:id="displayEmployeeLabel112" prefHeight="27.0" prefWidth="110.0" text="Age" />
                               <TextField fx:id="specifyNumberTableAddHoursTextfield" prefHeight="26.0" prefWidth="98.0" />
                            </children>
                         </HBox>

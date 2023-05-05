@@ -115,4 +115,12 @@ public class Command {
     public void setTotalPrice(String totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }

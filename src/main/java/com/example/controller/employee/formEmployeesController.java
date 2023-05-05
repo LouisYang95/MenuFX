@@ -168,16 +168,16 @@ public class formEmployeesController implements Initializable {
                 }
 
                 if (specifyNumberTableAddHoursTextfield.getText().isEmpty()) {
-                    System.out.println("Veuillez spécifier un nombre d'heures travaillées.");
+                    System.out.println("Veuillez spécifier votre age.");
                     return;
                 }
 
                 // We create a variable to store the employee's name and position and hours worked
                 String employeeName = specifyNumberTableAddTextfield.getText();
                 String employeePosition = specifyNumberTableAddPositionTextfield.getText();
-                int employeeHoursWorked = Integer.parseInt(specifyNumberTableAddHoursTextfield.getText());
+                int employeeAge = Integer.parseInt(specifyNumberTableAddHoursTextfield.getText());
 
-                Employee newEmployee = new Employee(employeeName);
+                Employee newEmployee = new Employee(employeeName, employeeAge );
 
                 // We add the employee to the employees list
                 // We update the JSON file
@@ -190,7 +190,7 @@ public class formEmployeesController implements Initializable {
                     JSONObject newTableJson = new JSONObject();
                     newTableJson.put("name", employeeName);
                     newTableJson.put("position", employeePosition);
-                    newTableJson.put("hoursWorked", employeeHoursWorked);
+                    newTableJson.put("age", employeeAge);
                     myArray.put(newTableJson);
                     String jsonString = myArray.toString();
                     Files.write(Paths.get("./json/employee.json"), jsonString.getBytes());

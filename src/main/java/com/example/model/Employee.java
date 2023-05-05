@@ -7,14 +7,14 @@ public class Employee {
     private String name;
     private String position;
     private float hoursWorked;
-    private List<Employee> employees;
+    private int age;
 
-    public Employee(String name) {
+    public Employee(String name, int age) {
         this.name = name;
         this.position = position;
-        this.hoursWorked = hoursWorked;
-        this.employees = new ArrayList<>();
+        this.age = age;
     }
+
 
     public String getName() {
         return name;
@@ -32,18 +32,12 @@ public class Employee {
         this.position = position;
     }
 
-    public float getHoursWorked() {
-        return hoursWorked;
+    public int getAge() {
+        return age;
     }
 
-    public void setHoursWorked(float hoursWorked) {
-        this.hoursWorked = hoursWorked;
+    public void setAge(int age) {
+        this.age = age;
     }
-
-    public void addHoursWorked(float hoursWorked) {
-        this.hoursWorked += hoursWorked;
-    }
-
-
 
 }
