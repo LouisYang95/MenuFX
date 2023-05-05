@@ -6,4 +6,6 @@ module com.example.menufx {
 
     opens com.example to javafx.fxml;
     exports com.example;
+    exports com.example.controller.financial;
+    opens com.example.controller.financial to javafx.fxml;
 }

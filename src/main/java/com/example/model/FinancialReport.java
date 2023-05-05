@@ -1,9 +1,11 @@
 package com.example.model;
 
-
-
 import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +23,8 @@ public class FinancialReport {
         this.Expenditure.add(amount);
     }
 
+    public void addRecipe(String amount) { this.recipes.add(amount); }
+
 
     public String getTotalRecipes() {
         double total = this.recipes.stream().mapToDouble(Double::parseDouble).sum();
@@ -28,7 +32,7 @@ public class FinancialReport {
     }
 
     public String getTotalExpenditureAsString() {
-        double total = this.Expenditure.stream().mapToDouble(Double::doubleValue).sum();
+        double total = this.Expenditure.stream().mapToDouble(Double::parseDouble).sum();
         return String.format("%.2f", total);
     }
 
@@ -41,66 +45,48 @@ public class FinancialReport {
         return getTotalExpenditure();
     }
 
+    public void createFinancialReportPDF(String filePath) {
+        try {
+            // Create a new PDF document
+            Document document = new Document();
+            PdfWriter.getInstance(document, new FileOutputStream(filePath));
+            document.open();
 
-}
+            // Add title to the document
+            Paragraph title = new Paragraph("Financial Report");
+            title.setAlignment(Element.ALIGN_CENTER);
+            document.add(title);
 
+            // Add recipes to the document
+            Paragraph recipesHeader = new Paragraph("Recipes");
+            document.add(recipesHeader);
+            for (String recipe : this.recipes) {
+                Paragraph recipeParagraph = new Paragraph(recipe);
+                document.add(recipeParagraph);
+            }
 
+            // Add expenditure to the document
+            Paragraph expenditureHeader = new Paragraph("Expenditure");
+            document.add(expenditureHeader);
+            for (String expenditure : this.Expenditure) {
+                Paragraph expenditureParagraph = new Paragraph(expenditure);
+                document.add(expenditureParagraph);
+            }
 
+            // Add total recipes and expenditure to the document
+            Paragraph totalRecipesParagraph = new Paragraph("Total Recipes: " + this.getTotalRecipes());
+            document.add(totalRecipesParagraph);
+            Paragraph totalExpenditureParagraph = new Paragraph("Total Expenditure: " + this.getTotalExpenditureAsString());
+            document.add(totalExpenditureParagraph);
 
+            // Add benefice to the document
+            Paragraph beneficeParagraph = new Paragraph("Benefice: " + this.getBenefice());
+            document.add(beneficeParagraph);
 
-    public class FinancialReport {
-        private List<String> Recipes;
-        private List<String> Expenditure;
-
-        public FinancialReport() {
-            this.Recipes = new ArrayList<>();
-            this.Expenditure = new ArrayList<>();
-        }
-
-
-        public void enregistrerRecipes(String Recipes) {
-            this.Recipes.add(Recipes);
-        }
-
-        public void enregistrerExpenditure(String Expenditure) {
-            this.Expenditure.add(Expenditure);
-        }
-
-        public double getTotalRecipes() {
-            return this.Recipes.stream().mapToDouble(Double::doubleValue).sum();
-        }
-
-        public double getTotalExpenditure() {
-            return this.Expenditure.stream().mapToDouble(Double::doubleValue).sum();
-        }
-
-        public void genererRapportFinancierPDF(String nomFichier) {
-            Document  document =  new Document();
-            Page page = document.getPages().add();
-            TextBuilder textBuilder = new  TextBuilder(page);
-
-            TextFragment titre = new TextFragment("Rapport Financier");
-            titre.getTextState().setFontSize(20);
-            titre.getTextState().setFont(FontRepository.findFont("TimesNewRoman"));
-            titre.getPosition().setX(100);
-            titre.getPosition().setY(700);
-            textBuilder.appendText(titre);
-
-            TextFragment totalRecipes = new TextFragment("Total des recettes : " + String.format("%.2f", getTotalRecipes()));
-            totalRecipes.getPosition().setX(100);
-            totalRecipes.getPosition().setY(650);
-            textBuilder.appendText(totalRecipes);
-
-            TextFragment totalExpenditure = new TextFragment("Total des dépenses : " + String.format("%.2f", getTotalExpenditure()));
-            totalDepenses.getPosition().setX(100);
-            totalDepenses.getPosition().setY(600);
-            textBuilder.appendText(totalExpenditure);
-
-            TextFragment resultat = new TextFragment("Résultat : " + String.format("%.2f", getTotalRecipes() - getTotalExpenditure()));
-            resultat.getPosition().setX(100);
-            resultat.getPosition().setY(550);
-            textBuilder.appendText(resultat);
-
-            document.save(nomFichier);
+            document.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+
+}
