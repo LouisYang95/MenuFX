@@ -68,6 +68,12 @@ public class Table {
     public void addTable(Table tables) {
         this.tables.add(tables);
     }
+
+    /**
+     * Get the list of tables.
+     * Remove a table from the list of tables.
+     * @return The list of tables
+     */
     public boolean removeTable(int tableNumber) {
         Iterator<Table> iterator = this.tables.iterator();
         while (iterator.hasNext()) {
@@ -79,6 +85,12 @@ public class Table {
         }
         return false;
     }
+
+    /**
+     * Set the list of tables.
+     *
+     * @return The list of tables
+     */
 
     public static int setLastTableNumber(List<Table> tables) {
         int maxTableNumber = 0;
