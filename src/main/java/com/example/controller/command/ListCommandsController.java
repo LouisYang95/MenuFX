@@ -1,9 +1,6 @@
 package com.example.controller.command;
 
-import com.example.model.Command;
-import com.example.model.Dashboard;
-import com.example.model.Dish;
-import com.example.model.Ingredient;
+import com.example.model.*;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -234,21 +231,25 @@ public class ListCommandsController implements Initializable {
         });
 
         /** 5. Add sorted (and filtered) data to the table. */
-        addCommand.setOnMousePressed(
-                mouseEvent -> {
-                    try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/command/formCommands.fxml"));
-                        Parent root = loader.load();
-                        Scene commandScene = new Scene(root);
+        if (!Chrono.stopOrder) {
+            addCommand.setOnMousePressed(
+                    mouseEvent -> {
+                        try {
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/command/formCommands.fxml"));
+                            Parent root = loader.load();
+                            Scene commandScene = new Scene(root);
 
-                        Stage currentStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-                        currentStage.setScene(commandScene);
-                        currentStage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                            Stage currentStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+                            currentStage.setScene(commandScene);
+                            currentStage.show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
-                }
-        );
+            );
+        } else {
+            addCommand.setDisable(true);
+        }
 
         /** 6. Add sorted (and filtered) data to the table. */
         homeButton.setOnAction(event -> {

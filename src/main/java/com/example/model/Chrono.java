@@ -3,45 +3,57 @@ package com.example.model;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 
-public class Chrono extends Thread {
-    private Label timeLabel;
-    private boolean stop;
-    private static int remainingSeconds;
+import java.util.Timer;
 
-    public Chrono(int durationMinutes, Label timeLabel) {
-        this.timeLabel = timeLabel;
-        this.remainingSeconds = durationMinutes * 60;
-        this.stop = false;
+public class Chrono extends Thread {
+
+    private static final int duration = 25 * 60;
+    private static int remainingTime = duration;
+    private static Timer timer;
+    private static Label timeLabel;
+    public static boolean isRunning;
+
+    public static boolean stopOrder = false;
+
+    public static void stopService() {
+        isRunning = false;
+        timer.cancel();
+        timer = null;
+        remainingTime = duration;
+        timeLabel.setText(getRemainingTime());
+    }
+
+    public static String getRemainingTime() {
+        int minutes = remainingTime / 60;
+        int remainingSeconds = remainingTime % 60;
+        return String.format("%02d:%02d", minutes, remainingSeconds);
+    }
+
+    public static void setTimerLabel(Label label) {
+        timeLabel = label;
     }
 
     public void run() {
-        while (!stop) {
-            try {
+        isRunning = true;
+
+        try {
+            for (;;) {
+                Platform.runLater(() -> timeLabel.setText(getRemainingTime()));
                 Thread.sleep(1000);
-                remainingSeconds--;
-
-                Platform.runLater(() -> timeLabel.setText(Chrono.getTimeRemaining()));
-
-                if (remainingSeconds <= 0) {
-                    stopChronometer();
+                remainingTime--;
+                if (remainingTime <= 0) {
+                    stopService();
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                if (remainingTime <= 900) {
+                    stopOrder = true;
+                }
             }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public void stopChronometer() {
-        this.stop = true;
-    }
-
-    public static boolean canTakeOrder() {
-        return remainingSeconds > 15 * 60;
-    }
-
-    public static String getTimeRemaining() {
-        int minutes = remainingSeconds / 60;
-        int seconds = remainingSeconds % 60;
-        return String.format("%02d:%02d", minutes, seconds);
+    public Chrono( Label timeLabel) {
+        timeLabel = timeLabel;
     }
 }

@@ -23,8 +23,6 @@ public class HomeController implements Initializable {
      * @throws IOException
      */
 
-    private static boolean firstTime;
-
     public void switchToDishPage(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/dish/listDishes.fxml"));
         Parent root = loader.load();
@@ -94,14 +92,14 @@ public class HomeController implements Initializable {
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
             //Start the chronometer
+            if (!Chrono.isRunning) {
+                Chrono chrono = new Chrono(timeLabel);
+                chrono.start();
+                timeLabel.setText(Chrono.getRemainingTime());
+            }
 
-            if (!firstTime) {
-                Chrono chronometer = new Chrono(25, timeLabel);
-                chronometer.start();
-                firstTime = true;
-            } else {
-
+            if (Chrono.isRunning) {
+                Chrono.setTimerLabel(timeLabel);
             }
         }
-
 }
