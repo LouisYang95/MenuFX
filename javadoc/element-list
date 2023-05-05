@@ -1,0 +1,8 @@
+module:com.example.menufx
+com.example
+com.example.controller.command
+com.example.controller.dish
+com.example.controller.employee
+com.example.controller.home
+com.example.controller.table
+com.example.model
