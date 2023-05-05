@@ -1,14 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.controller.table.formTablesController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.table.FormTablesController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane prefHeight="103.0" prefWidth="600.0">
+         <children>
+            <VBox layoutX="17.0" layoutY="22.0" prefHeight="75.0" prefWidth="575.0">
+               <children>
+                  <HBox prefHeight="93.0" prefWidth="584.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="109.0" text="Nombre de places : " />
+                        <TextField fx:id="specifyTableTexfield" prefHeight="26.0" prefWidth="74.0" />
+                        <Label text=" id : " />
+                        <TextField fx:id="specifyTableIdTextfield" prefHeight="26.0" prefWidth="98.0" />
+                        <Label text="number" />
+                        <TextField fx:id="specifyTableNumberTextfield" prefHeight="26.0" prefWidth="98.0" />
+                        <Button fx:id="registerTableButton" mnemonicParsing="false" text="Enregistrer" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="93.0" prefWidth="584.0">
+                     <children>
+                        <Label text="Numéro de la table : " />
+                        <TextField fx:id="specifyNumberTableDeleteButton" prefHeight="26.0" prefWidth="98.0" />
+                        <Button fx:id="deleteTableButton" mnemonicParsing="false" text="Supprimer" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="69.0" prefWidth="573.0">
+                     <children>
+                        <Button fx:id="nextPageToListTable" mnemonicParsing="false" onAction="#switchToTableListScreen" text="Voir la liste de tables" />
+                     </children>
+                  </HBox>
+                  <Button fx:id="displayTableList" mnemonicParsing="false" text="Afficher la liste des tables" />
+                  <Button fx:id="displayTableFreeList" mnemonicParsing="false" text="Afficher la liste des tables disponibles : " />
+                  <Button fx:id="displayTableNonFreeList" mnemonicParsing="false" text="Afficher la liste des tables non disponibles : " />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <HBox prefHeight="52.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="displayTablesLabel" prefHeight="49.0" prefWidth="600.0" />
+         </children>
+      </HBox>
+      <HBox prefHeight="52.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="displayTablesFreeLabel" prefHeight="49.0" prefWidth="600.0" />
+         </children>
+      </HBox>
+      <HBox prefHeight="52.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="displayTablesNonFreeLabel" prefHeight="49.0" prefWidth="600.0" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

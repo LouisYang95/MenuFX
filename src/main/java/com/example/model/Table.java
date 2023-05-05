@@ -15,19 +15,13 @@ public class Table {
     private int nbSeats;
     private List<Table> tables;
 
-    public Table(int lastTableNumber, int nbSeats) {
-        this.id = lastTableNumber++;
-        this.number = lastTableNumber;
+
+    public Table(int id, int number, int nbSeats) {
+        this.id = id;
+        this.number = number;
         this.isFree = true;
         this.nbSeats = nbSeats;
         this.tables = new ArrayList<>();
-    }
-
-
-    public Table(int number) {
-        this.id = lastTableNumber++;
-        this.tables = new ArrayList<>();
-        this.number = number;
     }
 
     public int getId() {
@@ -63,6 +57,37 @@ public class Table {
     }
     public int getNbSeats() { return nbSeats; }
     public void setNbSeats(int nbSeats) { this.nbSeats = nbSeats; }
+
+    public void addTable(Table tables) {
+        this.tables.add(tables);
+    }
+    public boolean removeTable(int tableNumber) {
+        Iterator<Table> iterator = this.tables.iterator();
+        while (iterator.hasNext()) {
+            Table table = iterator.next();
+            if (table.getNumber() == tableNumber) {
+                iterator.remove();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static int setLastTableNumber(List<Table> tables) {
+        int maxTableNumber = 0;
+        for (Table table : tables) {
+            if (table.getNumber() > maxTableNumber) {
+                maxTableNumber = table.getNumber();
+            }
+        }
+        return maxTableNumber + 1;
+    }
+
+    public void assignCommand(Command command) {
+        this.command = command;
+        this.isFree = false;
+    }
+
 
     public void addTable(Table tables) {
         this.tables.add(tables);
