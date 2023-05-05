@@ -1,20 +1,19 @@
 package com.example.controller.dish;
 
+import com.example.MyApplication;
 import com.example.model.Dish;
 import com.example.model.Ingredient;
 import com.example.model.Menu;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -52,6 +51,8 @@ public class ListDishController implements Initializable {
     private Label ingredientLabel;
     @FXML
     private Button addDishButton;
+    @FXML
+    private Button homeButton;
 
 
     @Override
@@ -126,8 +127,20 @@ public class ListDishController implements Initializable {
                 e.printStackTrace();
             }
         });
-    }
+        homeButton.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/home/home.fxml"));
+                Parent root = loader.load();
+                Scene dishScene = new Scene(root);
 
+                Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                currentStage.setScene(dishScene);
+                currentStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
     public void switchToThisScreen(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/dish/formDish.fxml"));
         Parent root = loader.load();

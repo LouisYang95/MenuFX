@@ -52,6 +52,8 @@ public class ListCommandsController implements Initializable {
     private ComboBox<String> statusComboBox;
     @FXML
     private Button cancelCommandBtn;
+    @FXML
+    private Button homeButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -208,6 +210,19 @@ public class ListCommandsController implements Initializable {
                 } catch (IOException e) {
                     throw new JSONException(e);
                 }
+            }
+        });
+        homeButton.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/home/home.fxml"));
+                Parent root = loader.load();
+                Scene dishScene = new Scene(root);
+
+                Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                currentStage.setScene(dishScene);
+                currentStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
     }
