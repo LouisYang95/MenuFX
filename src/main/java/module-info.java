@@ -2,6 +2,7 @@ module com.example.menufx {
     requires javafx.controls;
     requires javafx.fxml;
     requires org.json;
+    requires itextpdf;
 
 
     opens com.example to javafx.fxml;
