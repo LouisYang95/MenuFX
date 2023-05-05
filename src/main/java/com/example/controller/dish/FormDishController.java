@@ -48,11 +48,7 @@ public class FormDishController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        //Start the chronometer
-        Chrono chronometer = new Chrono(25);
-        chronometer.start();
-
+        System.out.println(Chrono.getTimeRemaining());
         Dish dish = new Dish();
         ingreComboBox.setOnMousePressed(mouseEvent -> {
             String dataJson = "[]";
@@ -115,9 +111,6 @@ public class FormDishController implements Initializable {
                 throw new NullPointerException();
             }
         });
-
-        //Stop the chronometer
-        chronometer.stopChronometer();
     }
 
 

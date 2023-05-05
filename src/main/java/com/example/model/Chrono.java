@@ -1,10 +1,15 @@
 package com.example.model;
 
-public class Chrono extends Thread {
-    private boolean stop;
-    private int remainingSeconds;
+import javafx.application.Platform;
+import javafx.scene.control.Label;
 
-    public Chrono(int durationMinutes) {
+public class Chrono extends Thread {
+    private Label timeLabel;
+    private boolean stop;
+    private static int remainingSeconds;
+
+    public Chrono(int durationMinutes, Label timeLabel) {
+        this.timeLabel = timeLabel;
         this.remainingSeconds = durationMinutes * 60;
         this.stop = false;
     }
@@ -14,6 +19,9 @@ public class Chrono extends Thread {
             try {
                 Thread.sleep(1000);
                 remainingSeconds--;
+
+                Platform.runLater(() -> timeLabel.setText(Chrono.getTimeRemaining()));
+
                 if (remainingSeconds <= 0) {
                     stopChronometer();
                 }
@@ -27,25 +35,13 @@ public class Chrono extends Thread {
         this.stop = true;
     }
 
-    public boolean canTakeOrder() {
-        return this.remainingSeconds > 15 * 60;
+    public static boolean canTakeOrder() {
+        return remainingSeconds > 15 * 60;
     }
 
-    public static void main(String[] args) {
-        Chrono chronometer = new Chrono(25);
-        chronometer.start();
-
-        while (!chronometer.stop) {
-            try {
-                Thread.sleep(1000);
-                if (!chronometer.canTakeOrder()) {
-                    System.out.println("Fin du service.");
-                } else {
-                    System.out.println("Service en cours.");
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+    public static String getTimeRemaining() {
+        int minutes = remainingSeconds / 60;
+        int seconds = remainingSeconds % 60;
+        return String.format("%02d:%02d", minutes, seconds);
     }
 }
