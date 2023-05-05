@@ -15,13 +15,6 @@ public class Table {
     private int nbSeats;
     private List<Table> tables;
 
-    public Table(int nbSeats, int seats) {
-        this.id = ++lastTableNumber;
-        this.number = lastTableNumber;
-        this.isFree = true;
-        this.nbSeats = nbSeats;
-        this.tables = new ArrayList<>();
-    }
 
     public Table(int id, int number, int nbSeats) {
         this.id = id;
@@ -95,6 +88,21 @@ public class Table {
         this.isFree = false;
     }
 
+
+    public void addTable(Table tables) {
+        this.tables.add(tables);
+    }
+    public boolean removeTable(int tableNumber) {
+        Iterator<Table> iterator = this.tables.iterator();
+        while (iterator.hasNext()) {
+            Table table = iterator.next();
+            if (table.getNumber() == tableNumber) {
+                iterator.remove();
+                return true;
+            }
+        }
+        return false;
+    }
     public void freeTable(){
         this.isFree = true;
         this.command = null;
