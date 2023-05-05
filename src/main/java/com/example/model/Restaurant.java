@@ -30,7 +30,7 @@ public class Restaurant {
 
     public void addEmployee(String name, String position, float hoursWorked) {
         int nextId = employees.size() + 1;
-        Employee newEmployee = new Employee(name, position, hoursWorked);
+        Employee newEmployee = new Employee(name);
         employees.add(newEmployee);
     }
 

@@ -9,7 +9,7 @@ public class Employee {
     private float hoursWorked;
     private List<Employee> employees;
 
-    public Employee(String name, String position, float hoursWorked) {
+    public Employee(String name) {
         this.name = name;
         this.position = position;
         this.hoursWorked = hoursWorked;

@@ -2,6 +2,7 @@ package com.example.controller.employee;
 
 import com.example.model.Employee;
 import com.example.model.Restaurant;
+import com.example.model.Table;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,6 +32,14 @@ public class formEmployeesController implements Initializable {
     private Button deleteEmployeeButton;
     @FXML
     private TextField specifyNumberTableDeleteTextfield;
+    @FXML
+    private Button addEmployeeButton;
+    @FXML
+    private TextField specifyNumberTableAddTextfield;
+    @FXML
+    private TextField specifyNumberTableAddPositionTextfield;
+    @FXML
+    private TextField specifyNumberTableAddHoursTextfield;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -106,6 +115,49 @@ public class formEmployeesController implements Initializable {
                 } else {
                     System.out.println("L'employé numéro " + employeeName + " n'a pas été trouvé.");
                 }
+            }
+        });
+
+        addEmployeeButton.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                List<Employee> employeesList = restaurant.getEmployees();
+                if (specifyNumberTableAddTextfield.getText().isEmpty()) {
+                    System.out.println("Veuillez spécifier un nom d'employé.");
+                    return;
+                }
+
+                if (specifyNumberTableAddPositionTextfield.getText().isEmpty()) {
+                    System.out.println("Veuillez spécifier un poste.");
+                    return;
+                }
+
+                if (specifyNumberTableAddHoursTextfield.getText().isEmpty()) {
+                    System.out.println("Veuillez spécifier un nombre d'heures travaillées.");
+                    return;
+                }
+
+                String employeeName = specifyNumberTableAddTextfield.getText();
+                String employeePosition = specifyNumberTableAddPositionTextfield.getText();
+                int employeeHoursWorked = Integer.parseInt(specifyNumberTableAddHoursTextfield.getText());
+
+                Employee newEmployee = new Employee(employeeName);
+
+                try {
+                    String dataJson = new String(Files.readAllBytes(Paths.get("./json/employee.json")));
+                    JSONArray myArray = new JSONArray(dataJson);
+                    JSONObject newTableJson = new JSONObject();
+                    newTableJson.put("name", employeeName);
+                    newTableJson.put("position", employeePosition);
+                    newTableJson.put("hoursWorked", employeeHoursWorked);
+                    myArray.put(newTableJson);
+                    String jsonString = myArray.toString();
+                    Files.write(Paths.get("./json/employee.json"), jsonString.getBytes());
+                    System.out.println("Le nouvel employé a été ajsouté.");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
 
