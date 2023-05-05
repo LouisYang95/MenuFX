@@ -1,5 +1,6 @@
 package com.example.controller.dish;
 
+import com.example.model.Chrono;
 import com.example.model.Dish;
 import com.example.model.Ingredient;
 import javafx.fxml.FXML;
@@ -47,6 +48,10 @@ public class FormDishController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        //Start the chronometer
+        Chrono chronometer = new Chrono(25);
+        chronometer.start();
 
         Dish dish = new Dish();
         ingreComboBox.setOnMousePressed(mouseEvent -> {
@@ -111,6 +116,8 @@ public class FormDishController implements Initializable {
             }
         });
 
+        //Stop the chronometer
+        chronometer.stopChronometer();
     }
 
 
