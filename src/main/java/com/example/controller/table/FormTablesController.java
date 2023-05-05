@@ -60,6 +60,10 @@ public class FormTablesController implements Initializable {
 
     @FXML
     private Button homeButton;
+
+    /**
+     * Initializes the controller class.
+     */
     @FXML
     void switchToTableListScreen(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/table/formTables.fxml"));
@@ -76,6 +80,9 @@ public class FormTablesController implements Initializable {
 
         Restaurant restaurant = new Restaurant();
 
+        /**
+         * Display all tables
+         */
         displayTableList.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -88,7 +95,7 @@ public class FormTablesController implements Initializable {
                 }
                 JSONArray myArray = new JSONArray(dataJson);
 
-                // Efface le texte précédent
+                // Erase previous text
                 displayTablesLabel.setText("");
 
                 for (int i = 0; i < myArray.length(); i++) {
@@ -99,6 +106,9 @@ public class FormTablesController implements Initializable {
             }
         });
 
+        /**
+         * Display free tables
+         */
         displayTableFreeList.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -111,7 +121,7 @@ public class FormTablesController implements Initializable {
                 }
                 JSONArray myArray = new JSONArray(dataJson);
 
-                // Efface le texte précédent
+                // Erase previous text
                 displayTablesFreeLabel.setText("");
 
                 for (int i = 0; i < myArray.length(); i++) {
@@ -124,6 +134,9 @@ public class FormTablesController implements Initializable {
             }
         });
 
+        /**
+         * Display non free tables
+         */
         displayTableNonFreeList.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -136,7 +149,7 @@ public class FormTablesController implements Initializable {
                 }
                 JSONArray myArray = new JSONArray(dataJson);
 
-                // Efface le texte précédent
+                // Erase previous text
                 displayTablesNonFreeLabel.setText("");
 
                 for (int i = 0; i < myArray.length(); i++) {
@@ -149,20 +162,9 @@ public class FormTablesController implements Initializable {
             }
         });
 
-
-
-        /*specifyTableTexfield.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                if (specifyTableTexfield != null) {
-                    Object selectedItem = specifyTableTexfield.getText();
-                    if (selectedItem != null) {
-                        System.out.println(selectedItem);
-                    }
-                }
-            }
-        });*/
-
+        /**
+            * Delete a table
+         */
         deleteTableButton.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -212,6 +214,9 @@ public class FormTablesController implements Initializable {
             }
         });
 
+        /**
+         * Register a table
+         */
         registerTableButton.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -237,10 +242,10 @@ public class FormTablesController implements Initializable {
                 int numero = Integer.parseInt(specifyTableNumberTextfield.getText());
                 int nbSeats = Integer.parseInt(specifyTableTexfield.getText());
 
-                // Création de la nouvelle table avec un ID et un numéro spécifié
-                Table newTable = new Table( numero, nbSeats);
+                // Create the new table object with an ID and a specific number
+                Table newTable = new Table(numero, nbSeats);
 
-                // Mise à jour du fichier JSON
+                // JSON Update
                 try {
                     String dataJson = new String(Files.readAllBytes(Paths.get("./json/table.json")));
                     JSONArray myArray = new JSONArray(dataJson);
@@ -260,6 +265,11 @@ public class FormTablesController implements Initializable {
             }
 
         });
+
+        /**
+         * Home button
+         * Redirect to home page
+         */
         homeButton.setOnAction(event -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/home/home.fxml"));

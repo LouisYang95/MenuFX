@@ -201,6 +201,11 @@ public class formEmployeesController implements Initializable {
 
             }
         });
+
+        /**
+         * Back to menu
+         * @param event
+         */
         backToMenu.setOnAction(event -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/home/home.fxml"));

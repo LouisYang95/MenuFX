@@ -52,6 +52,10 @@ public class FormDishController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         Dish dish = new Dish();
+        /**
+         * Add ingredients to the dish
+         * @param mouseEvent
+         */
         ingreComboBox.setOnMousePressed(mouseEvent -> {
             String dataJson = "[]";
             List<Ingredient> ingredients = new ArrayList<>();
@@ -83,6 +87,10 @@ public class FormDishController implements Initializable {
             }
         });
 
+        /**
+         * Add dish(es)
+         * @param mouseEvent
+         */
         dishButton.setOnMousePressed(mouseEvent -> {
             String dataJson = "[]";
             try {
@@ -114,6 +122,11 @@ public class FormDishController implements Initializable {
                 throw new NullPointerException();
             }
         });
+
+        /**
+         * Go back to the list of dishes
+         * @param mouseEvent
+         */
         backToList.setOnMousePressed(
                 mouseEvent -> {
                     try {
@@ -126,7 +139,11 @@ public class FormDishController implements Initializable {
 
     }
 
-
+    /**
+     * Go to the list of dishes
+     * @param event
+     * @throws IOException
+     */
     public void goToListScreen(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/dish/listDishes.fxml"));
         Parent root = loader.load();

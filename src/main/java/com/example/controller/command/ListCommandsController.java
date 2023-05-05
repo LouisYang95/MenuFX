@@ -64,9 +64,13 @@ public class ListCommandsController implements Initializable {
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         totalPriceColumn.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
 
+        /**
+         * 1. Wrap the ObservableList in a FilteredList (initially display all data).
+         */
         Dashboard dashboard = new Dashboard();
         String commandJson = "[]" ;
         List<Ingredient> ingredients = new ArrayList<>();
+        /** Try Catch to read the json file */
         try {
             commandJson = new String(Files.readAllBytes(Paths.get("./json/commands.json")));
         } catch (IOException e) {
@@ -88,6 +92,7 @@ public class ListCommandsController implements Initializable {
         JSONArray dishArray = new JSONArray(dishJson);
         JSONArray ingredientArray = new JSONArray(ingredientJson);
 
+        /** For each loop to read the json file */
         ingredientArray.forEach(ingredientObj -> {
             JSONObject ingredientJSON = (JSONObject) ingredientObj;
             String name = ingredientJSON.getString("name");
@@ -95,6 +100,8 @@ public class ListCommandsController implements Initializable {
             Ingredient ingredient = new Ingredient(name, type);
             ingredients.add(ingredient);
         });
+
+        /**Creating a list of dishes in which we will add the dishes from the json file*/
         myArray.toList().stream().map(Map.class::cast).map(JSONObject::new).forEach(myJsonObject -> {
             List<Dish> dishesList = new ArrayList<>();
             List<Ingredient> ingredientsList = new ArrayList<>();
@@ -106,6 +113,8 @@ public class ListCommandsController implements Initializable {
                                 ingredientsList.add(ingredient1);
                             }
                         }));
+
+                        /** Condition to check if the dish name from the json file is the same as the dish name from the dish list */
                         if (myDishJSON.getString("name").equals(dish.toString())) {
                             Dish myDish = new Dish(
                                     myDishJSON.getString("name"),
@@ -125,6 +134,8 @@ public class ListCommandsController implements Initializable {
                     myJsonObject.getInt("table"),
                     myJsonObject.getString("client")
             );
+
+            /** Calculating the total price of the command */
             String totalPrice = dishesList.stream().reduce(
                     0.0,
                     (subtotal, dish) -> subtotal + dish.getPrice(),
@@ -133,6 +144,7 @@ public class ListCommandsController implements Initializable {
             command.setTotalPrice(totalPrice);
             command.setId(commandId);
 
+            /** Adding the command to the dashboard */
             dashboard.addCommand(command);
             ObservableList<Command> commandList = FXCollections.observableArrayList(dashboard.getCommands().stream().filter(
                     command1 -> command1.getStatus().equals("in progress")
@@ -152,6 +164,8 @@ public class ListCommandsController implements Initializable {
             String status = statusJSON1.getString("name");
             statusComboBox.getItems().add(status);
         });
+
+        /** 2. Set the filter Predicate whenever the filter changes. */
         ObjectProperty<Command> selectedCommand = new SimpleObjectProperty<>();
         commandTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
@@ -164,6 +178,8 @@ public class ListCommandsController implements Initializable {
                 selectedCommand.set(newSelection);
             }
         });
+
+        /** 3. Wrap the FilteredList in a SortedList. */
         statusComboBox.setOnAction(event -> {
             if (selectedCommand.get() != null && !statusComboBox.getValue().equals("")) {
                 selectedCommand.get().setStatus(statusComboBox.getValue());
@@ -192,6 +208,8 @@ public class ListCommandsController implements Initializable {
                 }
             }
         });
+
+        /** 4. Bind the SortedList comparator to the TableView comparator. */
         cancelCommandBtn.setOnMousePressed(mouseEvent ->{
             if (selectedCommand.get() != null) {
                 selectedCommand.get().setStatus("cancelled");
@@ -214,6 +232,8 @@ public class ListCommandsController implements Initializable {
                 }
             }
         });
+
+        /** 5. Add sorted (and filtered) data to the table. */
         addCommand.setOnMousePressed(
                 mouseEvent -> {
                     try {
@@ -229,6 +249,8 @@ public class ListCommandsController implements Initializable {
                     }
                 }
         );
+
+        /** 6. Add sorted (and filtered) data to the table. */
         homeButton.setOnAction(event -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/home/home.fxml"));

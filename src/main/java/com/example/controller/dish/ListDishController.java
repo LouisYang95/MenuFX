@@ -100,6 +100,10 @@ public class ListDishController implements Initializable {
             ObservableList<Dish> dishes = FXCollections.observableArrayList(menu.getDishes());
             dishTable.setItems(dishes);
         });
+
+        /**
+         * When a row is selected, the dish's information will be displayed
+         */
         dishTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 nameLabel.setText(newSelection.getName());
@@ -120,6 +124,10 @@ public class ListDishController implements Initializable {
                 }
             }
         });
+
+        /**
+         * When the addDishButton is pressed, the user will be redirected to the formDish.fxml
+         */
         addDishButton.setOnMousePressed(event -> {
             try {
                 switchToThisScreen(event);
@@ -127,6 +135,10 @@ public class ListDishController implements Initializable {
                 e.printStackTrace();
             }
         });
+
+        /**
+         * When the homeButton is pressed, the user will be redirected to the home.fxml
+         */
         homeButton.setOnAction(event -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/home/home.fxml"));
@@ -141,6 +153,12 @@ public class ListDishController implements Initializable {
             }
         });
     }
+
+    /**
+     * Switch to the formDish.fxml
+     * @param event
+     * @throws IOException
+     */
     public void switchToThisScreen(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vue/dish/formDish.fxml"));
         Parent root = loader.load();

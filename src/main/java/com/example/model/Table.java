@@ -6,6 +6,10 @@ import java.util.List;
 
 public class Table {
 
+    /** In this table, we are intializing the variables and the constructor
+     *
+     */
+
     private static int lastTableNumber = 0;
     private int id;
 
@@ -16,6 +20,11 @@ public class Table {
     private List<Table> tables;
 
 
+    /** This constructor is used to create a table
+     *
+     * @param number
+     * @param nbSeats
+     */
     public Table( int number, int nbSeats) {
         this.number = number;
         this.isFree = true;
@@ -61,6 +70,11 @@ public class Table {
     public int getNbSeats() { return nbSeats; }
     public void setNbSeats(int nbSeats) { this.nbSeats = nbSeats; }
 
+    /** Method removeTable to remove a table
+     *
+     * @param tableNumber
+     * @return
+     */
     public boolean removeTable(int tableNumber) {
         Iterator<Table> iterator = this.tables.iterator();
         while (iterator.hasNext()) {
@@ -73,6 +87,11 @@ public class Table {
         return false;
     }
 
+    /** Method setLastTableNumber to set the last table number
+     *
+     * @param tables
+     * @return
+     */
     public static int setLastTableNumber(List<Table> tables) {
         int maxTableNumber = 0;
         for (Table table : tables) {
