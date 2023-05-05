@@ -1,14 +1,19 @@
 package com.example.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Employee {
     private String name;
     private String position;
     private float hoursWorked;
+    private List<Employee> employees;
 
-    public Employee(String name, String position, float hoursWorked) {
+    public Employee(String name) {
         this.name = name;
         this.position = position;
         this.hoursWorked = hoursWorked;
+        this.employees = new ArrayList<>();
     }
 
     public String getName() {

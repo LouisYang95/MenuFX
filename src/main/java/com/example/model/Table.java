@@ -15,13 +15,6 @@ public class Table {
     private int nbSeats;
     private List<Table> tables;
 
-    public Table(int nbSeats, int seats) {
-        this.id = ++lastTableNumber;
-        this.number = lastTableNumber;
-        this.isFree = true;
-        this.nbSeats = nbSeats;
-        this.tables = new ArrayList<>();
-    }
 
     public Table(int id, int number, int nbSeats) {
         this.id = id;
@@ -106,6 +99,9 @@ public class Table {
         this.command = command;
         this.isFree = false;
     }
+
+
+
 
     public void freeTable(){
         this.isFree = true;
