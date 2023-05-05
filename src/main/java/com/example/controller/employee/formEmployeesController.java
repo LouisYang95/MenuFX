@@ -46,6 +46,11 @@ public class formEmployeesController implements Initializable {
 
         Restaurant restaurant = new Restaurant();
 
+        /**
+         * Display employees
+         * @param mouseEvent
+         */
+
         displayEmployeeButton.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -58,8 +63,10 @@ public class formEmployeesController implements Initializable {
                 }
                 JSONArray myArray = new JSONArray(dataJson);
 
+                // The label is cleared
                 displayEmployeeLabel.setText("");
 
+                // We display the employees in the label
                 for (int i = 0; i < myArray.length(); i++) {
                     JSONObject myJSONObject = myArray.getJSONObject(i);
                     System.out.println(myJSONObject);
@@ -68,6 +75,10 @@ public class formEmployeesController implements Initializable {
             }
         });
 
+        /**
+         * Add employee
+         * @param mouseEvent
+         */
         deleteEmployeeButton.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -81,14 +92,18 @@ public class formEmployeesController implements Initializable {
                 }
                 JSONArray myArray = new JSONArray(dataJson);
 
+                // Verify if the textfield is empty
                 if (specifyNumberTableDeleteTextfield.getText().isEmpty()) {
                     System.out.println("Veuillez spécifier un nom d'employé.");
                     return;
                 }
+
+                // Create a variable to store the employee's name
                 String tableNumberString = specifyNumberTableDeleteTextfield.getText();
                 String employeeName = String.valueOf(tableNumberString);
                 boolean isEmployeeFound = false;
 
+                // We search the employee in the JSON file
                 for (int i = 0; i < myArray.length(); i++) {
                     JSONObject myJSONObject = myArray.getJSONObject(i);
                     System.out.println(myJSONObject);
@@ -100,6 +115,12 @@ public class formEmployeesController implements Initializable {
                     }
                 }
 
+                // If the employee is found, we delete it
+                // Else, we display an error message
+                // We update the JSON file
+                // We update the restaurant object
+                // We display a success message
+                // We display an error message
                 if (isEmployeeFound) {
                     // Mise à jour du fichier JSON
                     try {
@@ -118,9 +139,16 @@ public class formEmployeesController implements Initializable {
             }
         });
 
+        /**
+         * Add employee
+         * @param mouseEvent
+         */
         addEmployeeButton.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
+                // We get the employees list
+                // We verify if the textfields are empty
+                // We get the textfields values
                 List<Employee> employeesList = restaurant.getEmployees();
                 if (specifyNumberTableAddTextfield.getText().isEmpty()) {
                     System.out.println("Veuillez spécifier un nom d'employé.");
@@ -137,12 +165,18 @@ public class formEmployeesController implements Initializable {
                     return;
                 }
 
+                // We create a variable to store the employee's name and position and hours worked
                 String employeeName = specifyNumberTableAddTextfield.getText();
                 String employeePosition = specifyNumberTableAddPositionTextfield.getText();
                 int employeeHoursWorked = Integer.parseInt(specifyNumberTableAddHoursTextfield.getText());
 
                 Employee newEmployee = new Employee(employeeName);
 
+                // We add the employee to the employees list
+                // We update the JSON file
+                // We display a success message
+                // We display an error message
+                // We update the restaurant object
                 try {
                     String dataJson = new String(Files.readAllBytes(Paths.get("./json/employee.json")));
                     JSONArray myArray = new JSONArray(dataJson);
