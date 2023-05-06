@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.employee.formEmployeesController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <VBox prefHeight="369.0" prefWidth="600.0">
+               <children>
+                  <HBox prefHeight="35.0" prefWidth="600.0">
+                     <children>
+                        <Button fx:id="displayEmployeeButton" mnemonicParsing="false" text="Afficher tous les employés" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="38.0" prefWidth="600.0">
+                     <children>
+                        <Label fx:id="displayEmployeeLabel1" prefHeight="27.0" prefWidth="110.0" text="Nom de l'employé : " />
+                         <TextField fx:id="specifyNumberTableDeleteTextfield" prefHeight="26.0" prefWidth="98.0" />
+                        <Button fx:id="deleteEmployeeButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="312.0" text="Supprimer un employé" />
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="190.0" prefWidth="600.0">
+                     <children>
+                        <HBox prefHeight="38.0" prefWidth="600.0">
+                           <children>
+                              <Label fx:id="displayEmployeeLabel111" prefHeight="27.0" prefWidth="110.0" text="Position de l'employé : " />
+                              <TextField fx:id="specifyNumberTableAddPositionTextfield" prefHeight="26.0" prefWidth="98.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="38.0" prefWidth="600.0">
+                           <children>
+                              <Label fx:id="displayEmployeeLabel11" prefHeight="27.0" prefWidth="110.0" text="Nom de l'employé : " />
+                              <TextField fx:id="specifyNumberTableAddTextfield" prefHeight="26.0" prefWidth="98.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="38.0" prefWidth="600.0">
+                           <children>
+                              <Label fx:id="displayEmployeeLabel112" prefHeight="27.0" prefWidth="110.0" text="Age" />
+                              <TextField fx:id="specifyNumberTableAddHoursTextfield" prefHeight="26.0" prefWidth="98.0" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="addEmployeeButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="312.0" text="Ajouter un employé" />
+                     </children>
+                  </VBox>
+                  <HBox prefHeight="104.0" prefWidth="600.0">
+                     <children>
+                        <Label fx:id="displayEmployeeLabel" prefHeight="102.0" prefWidth="601.0" wrapText="true" />
+                     </children>
+                  </HBox>
+                  <Button fx:id="backToMenu" mnemonicParsing="false" prefHeight="26.0" prefWidth="602.0" text="Retour au menu" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

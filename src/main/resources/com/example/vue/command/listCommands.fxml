@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.command.ListCommandsController">
+   <children>
+      <AnchorPane prefHeight="403.0" prefWidth="600.0">
+         <children>
+            <HBox prefHeight="400.0" prefWidth="600.0">
+               <children>
+                  <VBox prefHeight="462.0" prefWidth="370.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="647.0" text="Liste des Commandes" textAlignment="CENTER">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="commandTable" prefHeight="339.0" prefWidth="492.0">
+                          <columns>
+                            <TableColumn fx:id="clientColumn" prefWidth="75.0" text="Client" />
+                              <TableColumn fx:id="tableColumn" prefWidth="75.0" text="Table" />
+                              <TableColumn fx:id="statusColumn" prefWidth="75.0" text="Status" />
+                              <TableColumn fx:id="totalPriceColumn" prefWidth="75.0" text="Prix total" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <HBox prefHeight="26.0" prefWidth="376.0">
+                           <children>
+                              <Button fx:id="homeButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="342.0" text="Retour au menu" />
+                              <Button fx:id="addCommand" mnemonicParsing="false" prefHeight="25.0" prefWidth="379.0" text="Ajouter une commande" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="400.0" prefWidth="287.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="34.0" prefWidth="224.0" text="Description" textAlignment="CENTER">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <VBox alignment="TOP_CENTER" prefHeight="343.0" prefWidth="224.0">
+                           <children>
+                              <VBox prefHeight="49.0" prefWidth="224.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="22.0" prefWidth="259.0" text="Client :" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="clientLabel" alignment="CENTER" prefHeight="22.0" prefWidth="259.0" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="66.0" prefWidth="224.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="20.0" prefWidth="576.0" text="Table :">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="tableLabel" alignment="CENTER" prefHeight="51.0" prefWidth="224.0" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="53.0" prefWidth="224.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="20.0" prefWidth="485.0" text="Status :">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="statusComboBox" prefHeight="46.0" prefWidth="224.0" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="172.0" prefWidth="224.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="51.0" prefWidth="263.0" text="Plats :">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dishLabel" alignment="TOP_CENTER" prefHeight="115.0" prefWidth="259.0" wrapText="true">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <Button fx:id="cancelCommandBtn" mnemonicParsing="false" prefHeight="35.0" prefWidth="225.0" style="-fx-background-color: red;" text="Annuler cette commande" textFill="#1b1a1a" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
